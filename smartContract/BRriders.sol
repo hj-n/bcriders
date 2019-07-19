@@ -23,7 +23,11 @@ contract BRriders {
     /* ========================================================================================================================*/
     // START of storages
     
-    // struct of basic storages: student and restaurant
+    // basic
+    address owner;
+    
+    
+    // struct of important storages: student and restaurant
     struct Student {
         string nickName;
         string name;    // Real name
@@ -50,7 +54,7 @@ contract BRriders {
     mapping (address => uint16) findRestIndex; 
     uint16 restNum;
     
-    
+    address[] validAddress;   // account addresses which are validated
     
     
     
@@ -65,19 +69,48 @@ contract BRriders {
         // initialization of variables
         stuNum = 0;
         restNum = 0;
-        
+        owner = msg.sender;
     }
     
+    // basic modifier
+    modifier onlyOwner {
+        require(msg.sender == owner);
+        _;
+    }
     
+    /* ====================================================================================== */
     // functions about signUp and Login
-    function requestStuRegister(string _nickname, string _name, uint8 _department) public {
-        stuCandidates.push(Student(_nickname, _name, _department, msg.sender));
+    // helper
+    function isAddressValid(address _address) private view returns (bool) {  // function to check whether address is validated by the owner
+        for(uint i = 0; i < validAddress.length; i++){
+            if(validAddress[i] == _address) return true;
+        }
+        return false;
     }
     
-    function requestRestRegister() public {
-        
+    
+    // interface
+    function addValidAddress(address _address, bool isAccept) public onlyOwner {  // can be called only by owner
+        if(isAccept){
+            validAddress.push(_address);
+        }
+        else {
+            
+        }
     }
     
+    function requestStuRegister(string _nickName, string _name, uint8 _department) public returns (bool){   // handle signUp of student
+        require(isAddressValid(msg.sender));
+        findStuIndex[msg.sender] = stuNum;
+        Students[stuNum] = Student(_nickName, _name, _department, msg.sender);
+        stuNum++;
+    }
+    
+    function requestRestRegister(string _restName, string _phoneNumber, string _physicalAddress) public returns (bool) { // handle signUp of student
+    
+    }
+    // End of functions about signUp and Login
+    /* ====================================================================================== */
     
     
     
