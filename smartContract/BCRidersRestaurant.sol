@@ -1,0 +1,83 @@
+pragma solidity ^0.4.18;
+
+import "./BCRidersStorage.sol";
+
+contract BCRidersRestaurant is BCRidersStorage{
+    /* ====================================================================================== */
+    // functions about Restaurant
+    
+    // interface (public functions)
+    
+    function getRestList(uint _category) public view returns (uint[], uint[], uint) {   // returns  list of "restaurant index" and coressponding list of those index restaurant's tokenPromise, and length
+        uint[] memory restIndexList = new uint[](restNum);    
+        uint[] memory restPromiseList = new uint[](restNum);  // index is coressponding to the restIndexList
+        
+        if(_category == 0) {    // request for all restaurant (for main page)
+            for(uint i = 0; i < restNum; i++){
+                restIndexList[i] = i;
+                restPromiseList[i] = Restaurants[i].tokenPromise;
+            }
+            return (restIndexList, restPromiseList, restNum);
+        }
+        else {
+            uint k = 0;
+            for(uint j = 0; j < restNum; j++){
+                if(Restaurants[j].category == _category){
+                    restIndexList[k] = j;
+                    restPromiseList[k] = Restaurants[j].tokenPromise;
+                    k++;
+                }
+            }
+            
+            uint[] memory shrinkedIndexList = new uint[](k);
+            uint[] memory shrinkedPromiseList = new uint[](k);        // now we know the number of rests in certain category, so shrink!!
+            for(uint l = 0; l < k; l++){
+                shrinkedIndexList[l] = restIndexList[l];
+                shrinkedPromiseList[l] = restPromiseList[l];
+            }
+            return (restIndexList, restPromiseList, k);
+        }
+    }
+    
+    function getRestInfo(uint _restIndex) public view returns (string, string, string, string, string, uint, uint) {  //returns nickName, restName, phoneNumber, physicalAddress, explanation, category, tokenPromise
+        return (Restaurants[_restIndex].nickName,
+                Restaurants[_restIndex].restName,
+                Restaurants[_restIndex].phoneNumber, 
+                Restaurants[_restIndex].physicalAddress,
+                Restaurants[_restIndex].explanation,
+                Restaurants[_restIndex].category,
+                Restaurants[_restIndex].tokenPromise);
+    }
+    
+    function getRestMenuList(uint _restIndex) public view returns (string[], uint[], uint)  {   // returns menu name array, price array with corresponding index, and their length
+        string[] memory menuNameList = new string[](menuNum);
+        uint[] memory menuPriceList = new uint[](menuNum);
+        
+        uint restMenuNum = 0;
+        for(uint i = 0; i < menuNum; i++){
+            if(Menus[i].restIndex == _restIndex) {
+                menuNameList[restMenuNum] = Menus[i].name;
+                menuPriceList[restMenuNum] = Menus[i].price;
+                restMenuNum++;
+            }
+        }
+        
+        string[] memory shrinkedNameList = new string[](restMenuNum);      // similar to getRestList function (shrink the size of output)
+        uint[] memory shrinkedPriceList = new uint[](restMenuNum);   
+        for(uint j = 0; j < restMenuNum; j++){
+            shrinkedNameList[j] = menuNameList[j];
+            shrinkedPriceList[j] = menuPriceList[j];
+        }
+        return (shrinkedNameList, shrinkedPriceList, restMenuNum);
+    }
+    
+    function addNewMenu(string _name, uint _price, uint _restIndex) public onlyRestAccount(_restIndex) {
+        Menus.push(Menu(_name, _price, _restIndex));
+        menuNum++;
+    }
+    
+    
+    // End of functions about Restaurant
+    /* ====================================================================================== */
+    
+}
