@@ -1,8 +1,9 @@
 pragma solidity ^0.4.18;
 
+import "./BCRidersLogin.sol";
 import "./BCRidersStorage.sol";
 
-contract BCRidersRestaurant is BCRidersStorage{
+contract BCRidersRestaurant is BCRidersStorage {
     /* ====================================================================================== */
     // functions about Restaurant
     
@@ -49,26 +50,27 @@ contract BCRidersRestaurant is BCRidersStorage{
                 Restaurants[_restIndex].tokenPromise);
     }
     
-    function getRestMenuList(uint _restIndex) public view returns (string[], uint[], uint)  {   // returns menu name array, price array with corresponding index, and their length
-        string[] memory menuNameList = new string[](menuNum);
-        uint[] memory menuPriceList = new uint[](menuNum);
+    function getRestMenuList(uint _restIndex) public view returns (uint[], uint)  {   // returns index array of menu, and their length
+        uint[] memory menuIndexList = new uint[](menuNum);
         
         uint restMenuNum = 0;
         for(uint i = 0; i < menuNum; i++){
             if(Menus[i].restIndex == _restIndex) {
-                menuNameList[restMenuNum] = Menus[i].name;
-                menuPriceList[restMenuNum] = Menus[i].price;
+                menuIndexList[restMenuNum] = i;
                 restMenuNum++;
             }
         }
         
-        string[] memory shrinkedNameList = new string[](restMenuNum);      // similar to getRestList function (shrink the size of output)
-        uint[] memory shrinkedPriceList = new uint[](restMenuNum);   
+    // similar to getRestList function (shrink the size of output)
+        uint[] memory shrinkedIndexList = new uint[](restMenuNum);   
         for(uint j = 0; j < restMenuNum; j++){
-            shrinkedNameList[j] = menuNameList[j];
-            shrinkedPriceList[j] = menuPriceList[j];
+            shrinkedIndexList[j] = menuIndexList[j];
         }
-        return (shrinkedNameList, shrinkedPriceList, restMenuNum);
+        return (shrinkedIndexList, restMenuNum);
+    }
+    
+    function getMenuInfo(uint _menuIndex) public view returns (string, uint) {    // retruns name and price of the menu
+        return (Menus[_menuIndex].name, Menus[_menuIndex].price);
     }
     
     function addNewMenu(string _name, uint _price, uint _restIndex) public onlyRestAccount(_restIndex) {

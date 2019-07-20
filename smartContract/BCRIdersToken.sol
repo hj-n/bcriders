@@ -100,6 +100,5 @@ contract BCRidersToken is BCRidersStorage {      // contract for token and Ether
     }
     
     
-    
-    
 }
+

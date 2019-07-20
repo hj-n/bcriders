@@ -107,5 +107,13 @@ contract BCRidersStorage {
         require(msg.sender == Restaurants[_restIndex].Address);
         _;
     }
-
+    
+    modifier onlyStuAccount(uint _stuIndex) {
+        require(_stuIndex < stuNum);
+        require(msg.sender == Students[_stuIndex].Address);
+        _;
+    }
+    
+    
+    
 }
