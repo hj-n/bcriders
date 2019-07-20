@@ -33,7 +33,7 @@ contract BCRidersLogin is BCRidersToken {
         if(!isAddressValid(msg.sender)) return false;
         if (isAddressSignedUp(msg.sender)) return false;     // prevent duplicated register
         findStuIndex[msg.sender] = stuNum;
-        Students[stuNum] = Student(_nickName, _name, _department, msg.sender);
+        Students[stuNum] = Student(_nickName, _name, _department, msg.sender, false, true);
         stuNum++;      // increase for next register student index
         signUpAddress.push(msg.sender);
         isAddressStuOrRest[msg.sender] = true;

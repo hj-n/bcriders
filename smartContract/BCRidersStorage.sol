@@ -33,6 +33,7 @@ pragma solidity ^0.4.18;
 contract BCRidersStorage {
     // basic
     address owner;
+    uint lastDistributedTime;    // last time "DistributeToken" has executed
     
     /* ====================================================================================== */
     // token info
@@ -65,6 +66,9 @@ contract BCRidersStorage {
         string name;    // Real name
         uint department;  // See above "Department matching" btw integer and department
         address Address;
+        
+        bool hasPendingOrder; // true if the student has pending order. Otherwise, false
+        bool checkedOrderAlarm; // true if the student checked treated order. Otherwise, false
     }
     
     struct Restaurant {
