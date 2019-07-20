@@ -466,6 +466,7 @@ footer h3 {
 }
 footer p {
   color: #ffffff;
+  text-align: center;
 }
 footer span {
   font-weight: bold;

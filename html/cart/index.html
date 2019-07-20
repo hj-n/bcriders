@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Cart</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Sublime project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="styles/cart.css">
+<link rel="stylesheet" type="text/css" href="styles/cart_responsive.css">
+</head>
+<body>
+
+<div class="super_container">
+
+	<!-- Header -->
+	<!-- preloader section -->
+	<section class="preloader">
+		<div class="sk-spinner sk-spinner-pulse"></div>
+	</section>
+	<nav>
+		<div class="logo">
+			<a href="../main/index.html">Blockchain<em>Riders</em></a>
+		</div>
+		<div class="menu-icon">
+			<span></span>
+	  	</div>
+	</nav>
+
+	<section class="overlay-menu">
+		<div class="container">
+			<div class="row">
+				<div class="main-menu">
+					<ul>
+						<li>
+							<a href="../main/index.html">Home</a>
+						</li>
+						<li>
+							<a href="mypage.html">MyPage-Order List</a>
+						</li>
+						<li>
+							<a href="mypage.html">MyPage-Review</a>
+						</li>
+						<li>
+							<a href="mypage.html">MyPage-Token</a>
+						</li>
+						<li>
+							<a href="single-post.html">Contact Us</a>
+						</li>
+					</ul>
+					<p>Delivery Service on Blockchain</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- home section -->
+
+	
+	<!-- Home -->
+
+	<div class="home">
+		<div class="home_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="home_content">
+							<div class="breadcrumbs">
+								<ul>
+										<li>Home</li>
+										<li>Categories</li>
+										<li>Shopping Cart</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+	<!-- Cart Info -->
+
+	<div class="cart_info">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<!-- Column Titles -->
+					<div class="cart_info_columns clearfix">
+						<div class="cart_info_col cart_info_col_product">Product</div>
+						<div class="cart_info_col cart_info_col_price">Price</div>
+						<div class="cart_info_col cart_info_col_quantity">Quantity</div>
+						<div class="cart_info_col cart_info_col_total">Total</div>
+					</div>
+				</div>
+			</div>
+			<div class="row cart_items_row">
+				<div class="col">
+
+					<!-- Cart Item -->
+					<div class="cart_item d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
+						<!-- Name -->
+						<div class="cart_item_product d-flex flex-row align-items-center justify-content-start">
+							<div class="cart_item_name_container">
+								<div class="cart_item_name"><a href="#">Food1</a></div>
+								<div class="cart_item_edit"><a href="#">Edit Product</a></div>
+							</div>
+						</div>
+						<!-- Price -->
+						<div class="cart_item_price1">9000</div> <b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>
+						<!-- Quantity -->
+						<div class="cart_item_quantity">
+							<div class="product_quantity_container">
+								<div class="product_quantity clearfix">
+									<span>Qty</span> 
+									<input id="quantity_input" type="text" pattern="[0-9]*" value="0"> 
+									<div class="quantity_buttons">
+										<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
+										<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+									</div> 
+								</div>
+							</div>
+						</div>
+						<!-- Total -->
+						<b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b><div class="cart_item_total1"></div>
+					</div>
+					<div class="cart_item d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
+						<!-- Name -->
+						<div class="cart_item_product d-flex flex-row align-items-center justify-content-start">
+							<div class="cart_item_name_container">
+								<div class="cart_item_name"><a href="#">Food2</a></div>
+								<div class="cart_item_edit"><a href="#">Edit Product</a></div>
+							</div>
+						</div>
+						<!-- Price -->
+						<div class="cart_item_price2">8000</div> <b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>
+						<!-- Quantity -->
+						<div class="cart_item_quantity">
+							<div class="product_quantity_container">
+								<div class="product_quantity clearfix">
+									<span>Qty</span>
+									<input id="quantity_input1" type="text" pattern="[0-9]*" value="0">
+									<div class="quantity_buttons">
+										<div id="quantity_inc_button1" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
+										<div id="quantity_dec_button1" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Total -->
+						<b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b><div class="cart_item_total2"></div>
+					</div>
+					<div class="cart_item d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
+						<!-- Name -->
+						<div class="cart_item_product d-flex flex-row align-items-center justify-content-start">
+							<div class="cart_item_name_container">
+								<div class="cart_item_name"><a href="#">Food3</a></div>
+								<div class="cart_item_edit"><a href="#">Edit Product</a></div>
+							</div>
+						</div>
+						<!-- Price -->
+						<div class="cart_item_price3">6000</div> <b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>
+						<!-- Quantity -->
+						<div class="cart_item_quantity">
+							<div class="product_quantity_container">
+								<div class="product_quantity clearfix">
+									<span>Qty</span>
+									<input id="quantity_input2" type="text" pattern="[0-9]*" value="0">
+									<div class="quantity_buttons">
+										<div id="quantity_inc_button2" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
+										<div id="quantity_dec_button2" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Total -->
+						<b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b><div class="cart_item_total3"></div>
+					</div>
+					
+
+				</div>
+			</div>
+			
+			<div class="row row_extra">
+				<div class="col-lg-4">
+					<div class="coupon">
+						<div class="section_title">Address</div>
+						<div class="section_subtitle">Enter your present address</div>
+						<div class="coupon_form_container">
+							<form action="#" id="coupon_form" class="coupon_form">
+								<input type="text" class="coupon_input" required="required">
+								<button class="button coupon_button"><span>Apply</span></button>
+							</form>
+						</div>
+					</div>
+			
+										<!-- Token Code -->
+					<div class="coupon">
+						<div class="section_title">Token</div>
+						<div class="section_subtitle">Enter your wallet address</div>
+						<div class="coupon_form_container">
+							<form action="#" id="coupon_form" class="coupon_form">
+								<input type="text" class="coupon_input" required="required">
+								<button class="button coupon_button"><span>Apply</span></button>
+							</form>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-6 offset-lg-2">
+					<div class="cart_total">
+						<div class="section_title">Cart total</div>
+						<div class="section_subtitle">Final info</div>
+						<div class="cart_total_container">
+							<ul>
+								<li class="d-flex flex-row align-items-center justify-content-start">
+									<div class="cart_total_title">Subtotal</div>
+									<div class="cart_total_value ml-auto">0</div>
+								</li>
+								<li class="d-flex flex-row align-items-center justify-content-start">
+									<div class="cart_total_title">Delivery</div>
+									<div class="cart_total_value ml-auto">Free</div>
+								</li>
+								<li class="d-flex flex-row align-items-center justify-content-start">
+									<div class="cart_total_title">Total</div>
+									<div id="cart_total_value ml-auto22" class="cart_total_value ml-auto" >0</div>
+								</li>
+							</ul>
+						</div>
+						<div class="button checkout_button"><a id="confirm_next">Proceed to order</a></div>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</div>
+
+	<!-- Footer -->
+	
+	<div class="footer_overlay"></div>
+	<footer class="footer">
+		<div class="container-fluid">
+			<div class="col-md-12">
+				<p>Copyright &copy; 2019 BlockchainRiders | Designed by JHLee</p>
+			</div>
+		</div>
+	</footer>
+</div>
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="styles/bootstrap4/popper.js"></script>
+<script src="styles/bootstrap4/bootstrap.min.js"></script>
+<script src="plugins/greensock/TweenMax.min.js"></script>
+<script src="plugins/greensock/TimelineMax.min.js"></script>
+<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
+<script src="plugins/greensock/animation.gsap.min.js"></script>
+<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="plugins/parallax-js-master/parallax.min.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
