@@ -39,8 +39,7 @@ contract BCRidersStorage {
     struct ridersToken {     // Riders Token info
         uint totalTokenInNetwork;     // total token inside network (Amount of token hold by users)
         uint totalTokenPublished;      // total token which is published since the network begin
-        mapping (address => uint) stuAddressToToken;
-        mapping (address => uint) restAddressToToken;   // store information about token balance
+        mapping (address => uint) addressToToken;
     }
     
     ridersToken Token;  // This will hold the information about token
@@ -83,12 +82,12 @@ contract BCRidersStorage {
     // arrays and mappings, variables to hold information of users
     Student[] stuCandidates;    // registers student users
     mapping (uint => Student)  Students;    // validated student users
-    mapping (address => uint16) findStuIndex;    // To find index of Students array from address
+    mapping (address => uint16) public findStuIndex;    // To find index of Students array from address
     uint16 stuNum;
     
     Restaurant[] restCandidates;   // Same for restaurants
     mapping (uint => Restaurant) Restaurants;
-    mapping (address => uint16) findRestIndex; 
+    mapping (address => uint16) public findRestIndex; 
     uint16 restNum;
     
     address[] validAddress;   // account addresses which are validated

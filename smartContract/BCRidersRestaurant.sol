@@ -76,6 +76,21 @@ contract BCRidersRestaurant is BCRidersStorage{
         menuNum++;
     }
     
+    function manageRestInfo(string _restName, string _phoneNumber, string _physicalAddress, uint _category, uint _restIndex) public onlyRestAccount(_restIndex)  {
+        Restaurants[_restIndex].restName = _restName;
+        Restaurants[_restIndex].phoneNumber = _phoneNumber;
+        Restaurants[_restIndex].physicalAddress = _physicalAddress;
+        Restaurants[_restIndex].category = _category;
+    }
+    
+    function manageRestExplanation(string _explanation, uint _restIndex) public onlyRestAccount(_restIndex) {
+        Restaurants[_restIndex].explanation = _explanation;
+    }
+    
+    function manageRestPromise(uint _tokenPromise, uint _restIndex) public onlyRestAccount(_restIndex) {
+        Restaurants[_restIndex].tokenPromise = _tokenPromise;
+    }
+    
     
     // End of functions about Restaurant
     /* ====================================================================================== */

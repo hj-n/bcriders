@@ -1,9 +1,10 @@
 pragma solidity ^0.4.18;
 
 import "./BCRidersStorage.sol";
+import "./BCRidersToken.sol";
 
 
-contract BCRidersLogin is BCRidersStorage {
+contract BCRidersLogin is BCRidersToken {
     /* ====================================================================================== */
     // functions about signUp and Login
     // helper
@@ -63,7 +64,8 @@ contract BCRidersLogin is BCRidersStorage {
         isAddressStuOrRest[msg.sender] = false;
         Token.totalTokenInNetwork += 1500000;
         Token.totalTokenPublished += 1500000;
-        Token.restAddressToToken[msg.sender] = 1500000;       // Give Initial Token
+        Token.addressToToken[msg.sender] = 1500000;       // Give Initial Token
+        Exchanges[msg.sender] = Exchange(0, true, true);     // set Default to use in exchange request
         return true;
     }
     
