@@ -344,7 +344,7 @@ $(document).ready(function()
 			var tokenv = document.getElementById('input').value;
 			var tokenm = document.getElementById('token_minus');
 			totals2.innerText = parseInt(totals2.innerText) - parseInt(tokenv*100);
-			tokenm.innerText = -tokenv*100;
+			tokenm.innerText = -tokenv*10;
 		});
 	}
 });
