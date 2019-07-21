@@ -347,7 +347,7 @@ $(document).ready(function()
 			if(flag){
 			var tokenv = document.getElementById('input').value;
 			var tokenm = document.getElementById('token_minus');
-			totals2.innerText = parseInt(totals2.innerText) - parseInt(tokenv*100);
+			totals2.innerText = parseInt(totals[0].innerText) - parseInt(tokenv*10);
 			tokenm.innerText = -tokenv*10;
 			flag = false;
 			if(parseInt(totals2.innerText) < 0){
@@ -355,6 +355,9 @@ $(document).ready(function()
 			}
 			}	
 		});
+		tokenbutton.focus(function(){
+			flag = true;
+		})
 		
 	}
 
