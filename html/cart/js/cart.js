@@ -22,7 +22,7 @@ $(document).ready(function()
 	1. Vars and Inits
 
 	*/
-
+	var flag = true;
 	var header = $('.header');
 	var hambActive = false;
 	var menuActive = false;
@@ -56,6 +56,9 @@ $(document).ready(function()
 	initQuantityy();
 	initQuantityyy();
 	Token();
+		
+	
+	
 	/* 
 
 	2. Set Header
@@ -338,13 +341,21 @@ $(document).ready(function()
 
 	function Token() {
 		var tokenbutton = $('#token_input');
-
+		
 		tokenbutton.on('click',function()
 		{
+			if(flag){
 			var tokenv = document.getElementById('input').value;
 			var tokenm = document.getElementById('token_minus');
 			totals2.innerText = parseInt(totals2.innerText) - parseInt(tokenv*100);
 			tokenm.innerText = -tokenv*10;
+			flag = false;
+			if(parseInt(totals2.innerText) < 0){
+				totals2.innerText = 0;
+			}
+			}	
 		});
+		
 	}
+
 });
