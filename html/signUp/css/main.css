@@ -267,14 +267,11 @@ iframe {
   border: 1px solid #e6e6e6;
 }
 
-.rs1-wrap-input100,
-.rs2-wrap-input100 {
-  width: 50%;
+.rs1-wrap-input100 {
+  width: 100%;
 }
 
-.rs2-wrap-input100 {
-  border-left: none;
-}
+
 
 
 .input100 {
@@ -286,11 +283,9 @@ iframe {
   color: #666666;
   line-height: 1.2;
   padding: 0 25px;
-}
-
-input.input100 {
   height: 55px;
 }
+
 
 /*---------------------------------------------*/
 
