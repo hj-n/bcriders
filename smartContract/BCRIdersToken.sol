@@ -25,10 +25,10 @@ contract BCRidersToken is BCRidersStorage {      // contract for token and Ether
         Token.addressToToken[_reciever] += _amount;
     }
     
-    function takeTokenBack(uint _amount, address _reciever) internal {    // take token back
-        require(Token.addressToToken[_reciever] >= _amount);   // safety check
+    function takeTokenBack(uint _amount, address _sender) internal {    // take token back
+        require(Token.addressToToken[_sender] >= _amount);   // safety check
         Token.totalTokenInNetwork -= _amount;
-        Token.addressToToken[_reciever] -= _amount;
+        Token.addressToToken[_sender] -= _amount;
     }
     
     

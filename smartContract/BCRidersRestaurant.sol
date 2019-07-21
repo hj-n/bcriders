@@ -90,7 +90,16 @@ contract BCRidersRestaurant is BCRidersStorage {
     }
     
     function manageRestPromise(uint _tokenPromise, uint _restIndex) public onlyRestAccount(_restIndex) {
-        Restaurants[_restIndex].tokenPromise = _tokenPromise;
+        require(Token.addressToToken[Restaurants[_restIndex].Address] > 10000);
+        if(_tokenPromise < 10000) {
+            Restaurants[_restIndex].tokenPromise = 10000;
+        }
+        else if(_tokenPromise > 50000) {
+            Restaurants[_restIndex].tokenPromise = 50000;
+        }
+        else {
+            Restaurants[_restIndex].tokenPromise = _tokenPromise;
+        }
     }
     
     

@@ -24,6 +24,7 @@ contract BCRidersReview is BCRidersOrder {
     struct Evaluation {
         address stuAddress;
         uint reviewIndex;
+        uint evaluateTime;
     }
     
     Evaluation[] Evals;
@@ -107,7 +108,7 @@ contract BCRidersReview is BCRidersOrder {
                 return false;
             }
         }
-        Evals.push(Evaluation(msg.sender, _reviewIndex));
+        Evals.push(Evaluation(msg.sender, _reviewIndex, now));
         
         // update the star to review state
         uint currentReviewStar = Reviews[_reviewIndex].reviewStar;
