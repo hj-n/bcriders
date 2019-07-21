@@ -184,21 +184,22 @@
 						<div class="section_subtitle">Enter your present address</div>
 						<div class="coupon_form_container">
 							<form action="#" id="coupon_form" class="coupon_form">
-								<input type="text" class="coupon_input" required="required">
+								<input type="text"  class="coupon_input" required="required" >
 								<button class="button coupon_button"><span>Apply</span></button>
 							</form>
 						</div>
 					</div>
 			
-										<!-- Token Code -->
+										<!-- Coupon Code -->
 					<div class="coupon">
 						<div class="section_title">Token</div>
-						<div class="section_subtitle">Enter your Token for use</div>
+						<div class="section_subtitle">Enter your wallet address</div>
 						<div class="coupon_form_container">
 							<form action="#" id="coupon_form" class="coupon_form">
-								<input type="text" class="coupon_input" required="required">
-								<button class="button coupon_button"><span>Apply</span></button>
+								<input type="text" id ="input" class="coupon_input" >
 							</form>
+							<button id ="token_input" class="button coupon_button" ><span>Apply</span></button>
+							
 						</div>
 					</div>
 				</div>
@@ -214,8 +215,8 @@
 									<div class="cart_total_value ml-auto">0</div>
 								</li>
 								<li class="d-flex flex-row align-items-center justify-content-start">
-									<div class="cart_total_title">Delivery</div>
-									<div class="cart_total_value ml-auto">Free</div>
+									<div class="cart_total_title">Token</div>
+									<div id="token_minus" class="cart_total_value ml-auto">0</div>
 								</li>
 								<li class="d-flex flex-row align-items-center justify-content-start">
 									<div class="cart_total_title">Total</div>
@@ -234,9 +235,15 @@
 	
 	<div class="footer_overlay"></div>
 	<footer class="footer">
-		<div class="container-fluid">
-			<div class="col-md-12">
-				<p>Copyright &copy; 2019 BlockchainRiders | Designed by JHLee</p>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="footer_content d-flex flex-lg-row flex-column align-items-center justify-content-lg-start justify-content-center">
+						<div class="footer_social ml-lg-auto">
+							CopyRight	
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</footer>

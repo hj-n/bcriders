@@ -28,10 +28,11 @@ $(document).ready(function()
 	var menuActive = false;
 	var totals = document.getElementsByClassName('cart_total_value ml-auto');
 	var totals2 = document.getElementById('cart_total_value ml-auto22');
+	var tokenv;
 	$("#confirm_next").click(function(){
 		if(confirm("After order, cancel is impossible. Continue?")){
 			alert('order confirmed');
-			window.location.href = "../main/index.html";
+			window.location.href = "./index.html";
 		}
 		else {
 			void("");
@@ -54,7 +55,7 @@ $(document).ready(function()
 	initQuantity();
 	initQuantityy();
 	initQuantityyy();
-	multiplytotal();
+	Token();
 	/* 
 
 	2. Set Header
@@ -214,7 +215,7 @@ $(document).ready(function()
 			total1[0].innerText = i1*endVal;
 			totals[0].innerText = (parseInt(totals[0].innerText,10)+ parseInt(i1*1,10));
 			totals2.innerText = (parseInt(totals2.innerText,10)+ parseInt(i1*1,10));
-		
+			
 		});
 
 
@@ -328,11 +329,22 @@ $(document).ready(function()
 				total3[0].innerText = i3*endVal;
 				totals[0].innerText = (parseInt(totals[0].innerText,10)- parseInt(i3*1,10));
 				
-				totals2.innerText = (parseInt(totals2.innerText,10)- parseInt(i3*1,10));
-			
+				totals2.innerText = (parseInt(totals2.innerText,10)- parseInt(i3*1,10) );
+					
 			}
 			});	
 		}
 	}
 
+	function Token() {
+		var tokenbutton = $('#token_input');
+
+		tokenbutton.on('click',function()
+		{
+			var tokenv = document.getElementById('input').value;
+			var tokenm = document.getElementById('token_minus');
+			totals2.innerText = parseInt(totals2.innerText) - parseInt(tokenv*100);
+			tokenm.innerText = -tokenv*100;
+		});
+	}
 });
