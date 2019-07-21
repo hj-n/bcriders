@@ -32,7 +32,7 @@ $(document).ready(function()
 	$("#confirm_next").click(function(){
 		if(confirm("After order, cancel is impossible. Continue?")){
 			alert('order confirmed');
-			window.location.href = "./index.html";
+			window.location.href = "../mypage";
 		}
 		else {
 			void("");
