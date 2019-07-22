@@ -31,14 +31,7 @@ contract BCRidersReview is BCRidersOrder {
     
     // end of helper storage
     /* ====================================================================================== */
-    
-    
-    // helper functions
-    
-    
-    
 
-    
     // interface (public functions)
     
     function writeReview(uint _restIndex, uint _stuIndex, uint _restStar, string _title, string _content) public onlyStuAccount(_stuIndex) returns (bool) {
@@ -124,6 +117,7 @@ contract BCRidersReview is BCRidersOrder {
         else {
             Reviews[_reviewIndex].isReply = true;
             Reviews[_reviewIndex].reply = _reply;
+            return true;
         }
     }
     

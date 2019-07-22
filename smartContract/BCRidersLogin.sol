@@ -23,10 +23,8 @@ contract BCRidersLogin is BCRidersToken {
     
     // interface ( public functions)
     
-    function addValidAddress(address _address, bool isAccept) public onlyOwner {  // can be called only by owner
-        if(isAccept){
+    function addValidAddress(address _address) public onlyOwner {  // can be called only by owner
             validAddress.push(_address);
-        }
     }
     
     function requestStuRegister(string _nickName, string _name, uint8 _department) public returns (bool){   // handle signUp of student

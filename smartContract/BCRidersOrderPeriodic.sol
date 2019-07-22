@@ -28,7 +28,7 @@ contract BCRidersOrderPeriodic is BCRidersOrder {
         }
     }
     
-    function isOrderTreated(uint _stuIndex) public view onlyStuAccount(_stuIndex) returns (string, bool) {   // if pending order had rejected: "Reject", confirmed: "Confirm", returns true if order treated and student didn't check it.
+    function isOrderTreated(uint _stuIndex) public view returns (string, bool) {   // if pending order had rejected: "Reject", confirmed: "Confirm", returns true if order treated and student didn't check it.
        // if this function's return value is "True", then alarm
        if(Students[_stuIndex].hasPendingOrder == true && keccak256(Orders[stuToOrderIndex[_stuIndex]].status) != keccak256("Pending")){
            return (Orders[stuToOrderIndex[_stuIndex]].status,true);

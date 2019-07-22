@@ -36,7 +36,7 @@ contract BCRidersOrder is BCRidersStorage {
                           _menuNum, _totalPrice, _tokenUsed, _actualPrice, now));     // add new order to the list
     }
     
-    function getRestOrderList(uint _restIndex) public view onlyRestAccount(_restIndex) returns (uint[], uint) {   // return the index array of untreated order and it's length
+    function getRestOrderList(uint _restIndex) public view returns (uint[], uint) {   // return the index array of untreated order and it's length
         uint num = 0;
         uint[] memory untreatedOrderList = new uint[](Orders.length);
         for(uint i = 0; i < Orders.length; i++){
@@ -53,7 +53,7 @@ contract BCRidersOrder is BCRidersStorage {
         return (shrinkedOrderList, num);
     }
     
-    function getStuOrderList(uint _stuIndex) public view onlyStuAccount(_stuIndex) returns (uint[], uint) {  // for student, show the information about this week's order
+    function getStuOrderList(uint _stuIndex) public view returns (uint[], uint) {  // for student, show the information about this week's order
         uint limit = now - 604800;  // 604800 is one week: Therefore this function only returns order after limit
         
         uint num = 0;
@@ -87,11 +87,11 @@ contract BCRidersOrder is BCRidersStorage {
                 o.orderTime);
     }
     
-    function confirmOrder(uint _orderIndex, bool isAccept) public {    // isAccept is true: confirm, false: reject
+    function confirmOrder(uint _orderIndex, bool _isAccept) public {    // isAccept is true: confirm, false: reject
         // requires for the test of error and validation
         require(msg.sender == Restaurants[Orders[_orderIndex].restIndex].Address);    // msg sender should be same to the restaurant of order
         require(keccak256(Orders[_orderIndex].status) == keccak256("Pending"));   // should be pending
-        if(isAccept) {
+        if(_isAccept) {
             Orders[_orderIndex].status = "Confirm";
             Token.addressToToken[msg.sender] += Orders[_orderIndex].tokenUsed;
             Token.addressToToken[Students[Orders[_orderIndex].stuIndex].Address] -= Orders[_orderIndex].tokenUsed;

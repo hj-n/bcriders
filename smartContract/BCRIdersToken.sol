@@ -39,6 +39,7 @@ contract BCRidersToken is BCRidersStorage {      // contract for token and Ether
     function requestEther() public returns (bool) {  // contract needs sufficient ether to handle this -> owner should send sufficient ether right after deploying it.
         if(msg.sender.balance > 5 ether) return false;    // make accounts cannot send request when they have enough balance
         msg.sender.transfer(5 ether);
+        return true;
     }
     
     // About Token

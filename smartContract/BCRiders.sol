@@ -108,8 +108,8 @@ contract BCRiders is BCRidersRestaurant, BCRidersLogin, BCRidersReview, BCRiders
         }
         for(i = 0; i < Reviews.length; i++) {
             if(Reviews[i].reviewTime > now - 604800) {   // check 1 week record
-                modifiedStarToRest[i] = int(Reviews[i].restStar) * 2 - 500;    // now range is -5 ~ 5
-                modifiedStarToRest[i] = modifiedStarToRest[i] * int(Reviews[i].reviewStar) / 100 + 2500;   // now range is 0~20
+                modifiedStarToRest[i] = int(Reviews[i].reviewStar) * 2 - 500;    // now range is -5 ~ 5
+                modifiedStarToRest[i] = modifiedStarToRest[i] * int(Reviews[i].restStar) / 100 + 2500;   // now range is 0~20
                 modifiedRestStarSumPerStu[Reviews[i].restIndex] += uint(modifiedStarToRest[i]);
                 modifiedRestStarSum += uint(modifiedStarToRest[i]);
             }
@@ -148,7 +148,7 @@ contract BCRiders is BCRidersRestaurant, BCRidersLogin, BCRidersReview, BCRiders
 
     }
     
-    // function 
+    // public function 
     function distributeToken() public onlyOwner {
         require(now > lastDistributedTime + 604800);       // 1 weeks should pass after distribution
         

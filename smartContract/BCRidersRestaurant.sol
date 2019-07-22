@@ -9,34 +9,28 @@ contract BCRidersRestaurant is BCRidersStorage {
     
     // interface (public functions)
     
-    function getRestList(uint _category) public view returns (uint[], uint[], uint) {   // returns  list of "restaurant index" and coressponding list of those index restaurant's tokenPromise, and length
+    function getRestList(uint _category) public view returns (uint[], uint) {   // returns  list of "restaurant index" and length
         uint[] memory restIndexList = new uint[](restNum);    
-        uint[] memory restPromiseList = new uint[](restNum);  // index is coressponding to the restIndexList
         
         if(_category == 0) {    // request for all restaurant (for main page)
             for(uint i = 0; i < restNum; i++){
                 restIndexList[i] = i;
-                restPromiseList[i] = Restaurants[i].tokenPromise;
             }
-            return (restIndexList, restPromiseList, restNum);
+            return (restIndexList, restNum);
         }
         else {
             uint k = 0;
             for(uint j = 0; j < restNum; j++){
                 if(Restaurants[j].category == _category){
                     restIndexList[k] = j;
-                    restPromiseList[k] = Restaurants[j].tokenPromise;
                     k++;
                 }
             }
-            
-            uint[] memory shrinkedIndexList = new uint[](k);
-            uint[] memory shrinkedPromiseList = new uint[](k);        // now we know the number of rests in certain category, so shrink!!
+            uint[] memory shrinkedIndexList = new uint[](k);   // now we know the number of rests in certain category, so shrink!!
             for(uint l = 0; l < k; l++){
                 shrinkedIndexList[l] = restIndexList[l];
-                shrinkedPromiseList[l] = restPromiseList[l];
             }
-            return (restIndexList, restPromiseList, k);
+            return (restIndexList, k);
         }
     }
     
