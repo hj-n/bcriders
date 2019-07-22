@@ -5,6 +5,9 @@ jQuery(document).ready(function($) {
         $(function() {
   
           // Vars
+          var time = $('#distribution');
+          var timebefore=0;
+          var timenow =0;
           var modBtn  = $('#modBtn'),
               modal   = $('#modal'),
               close   = modal.find('.close-btn img'),
@@ -16,6 +19,17 @@ jQuery(document).ready(function($) {
             modContent.removeClass('modal-animated-out').addClass('modal-animated-in');
           });
           
+          time.on('click',function(){
+            if(timenow ==0){
+              timenow = Date.now();
+            }
+            else{
+              timebefore = timenow;
+              timenow = Date.now();
+            }
+            alert(timenow-timebefore);
+          });
+
           // close modal when click on close button or somewhere out the modal content 
           $(document).on('click', function(e) {
             var target = $(e.target);
