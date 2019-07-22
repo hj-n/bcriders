@@ -16,10 +16,6 @@ jQuery(document).ready(function($) {
             modContent.removeClass('modal-animated-out').addClass('modal-animated-in');
           });
           
-          $('.comments').on('click',function(){
-            prompt('leave a comment');
-          });
-
           // close modal when click on close button or somewhere out the modal content 
           $(document).on('click', function(e) {
             var target = $(e.target);
