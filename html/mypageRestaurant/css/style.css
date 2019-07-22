@@ -382,6 +382,9 @@ nav {
   margin-top: 12px;
   height: 50px;
 }
+#name {
+  margin-top: 12px;
+}
 /* info section */
 #info {
   text-align: center;
