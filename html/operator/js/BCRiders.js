@@ -1,5 +1,4 @@
 function validateAddress(){
     var validAddress = document.getElementById("validation").value;
-    alert(validAddress);
-    //BCRiders.addValidAddress(,function(){} );
+    BCRiders.addValidAddress(validAddress,function(){} );
 };
