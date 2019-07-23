@@ -12,10 +12,10 @@
 <link rel="stylesheet" type="text/css" href="styles/cart_responsive.css">
 </head>
 <!-- put this code between "HEAD" tag and "BODY" tag.    -->
-<!-- ====================================================-->
+<!-- ====================================================--
 <script type=”text/javascript” src=”../web3.min.js”></script>
 <script type="text/javascript" src="../BCRiders.js"></script>
-<!-- ====================================================-->
+!-- ====================================================-->
 <!-- put this code between "HEAD" tag and "BODY" tag.    -->
 <body>
 
@@ -190,7 +190,7 @@
 						<div class="section_subtitle">Enter your present address</div>
 						<div class="coupon_form_container">
 							<form action="#" id="coupon_form" class="coupon_form">
-								<input type="text"  class="coupon_input" required="required" >
+								<input type="text"  id="address" class="coupon_input" required="required" >
 								<button class="button coupon_button"><span>Apply</span></button>
 							</form>
 						</div>
@@ -202,7 +202,7 @@
 						<div class="section_subtitle">Enter token amount for discount</div>
 						<div class="coupon_form_container">
 							<form action="#" id="coupon_form" class="coupon_form">
-								<input type="text" id ="input" class="coupon_input" >
+								<input type="text" id ="useToken" class="coupon_input" >
 							</form>
 							<button id ="token_input" class="button coupon_button" ><span>Apply</span></button>
 							Your holding amount: 00000
@@ -254,7 +254,7 @@
 		</div>
 	</footer>
 </div>
-
+<script src="js/BCRiders.js"></script>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>
 <script src="styles/bootstrap4/bootstrap.min.js"></script>
