@@ -1,6 +1,7 @@
 var web3js;
 
 
+var BCRiders;
 window.addEventListener('load', function() {
     // Checking if Web3 has been injected by the browser (Mist/MetaMask)
     if (typeof web3 !== 'undefined') {
@@ -12,7 +13,6 @@ window.addEventListener('load', function() {
     }
 
 
-var BCRiders;
 
 var contractABI = [
         {
