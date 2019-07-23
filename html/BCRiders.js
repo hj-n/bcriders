@@ -32,80 +32,6 @@ var contractABI = [
 		"constant": true,
 		"inputs": [
 			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "signUpAddress",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "Reviews",
-		"outputs": [
-			{
-				"name": "restIndex",
-				"type": "uint256"
-			},
-			{
-				"name": "stuIndex",
-				"type": "uint256"
-			},
-			{
-				"name": "restStar",
-				"type": "uint256"
-			},
-			{
-				"name": "reviewStar",
-				"type": "uint256"
-			},
-			{
-				"name": "numReviewStar",
-				"type": "uint256"
-			},
-			{
-				"name": "title",
-				"type": "string"
-			},
-			{
-				"name": "content",
-				"type": "string"
-			},
-			{
-				"name": "reply",
-				"type": "string"
-			},
-			{
-				"name": "isReply",
-				"type": "bool"
-			},
-			{
-				"name": "reviewTime",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
 				"name": "_restIndex",
 				"type": "uint256"
 			}
@@ -152,53 +78,6 @@ var contractABI = [
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "Restaurants",
-		"outputs": [
-			{
-				"name": "nickName",
-				"type": "string"
-			},
-			{
-				"name": "restName",
-				"type": "string"
-			},
-			{
-				"name": "phoneNumber",
-				"type": "string"
-			},
-			{
-				"name": "physicalAddress",
-				"type": "string"
-			},
-			{
-				"name": "explanation",
-				"type": "string"
-			},
-			{
-				"name": "category",
-				"type": "uint256"
-			},
-			{
-				"name": "tokenPromise",
-				"type": "uint256"
-			},
-			{
-				"name": "Address",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -292,25 +171,6 @@ var contractABI = [
 		"constant": true,
 		"inputs": [
 			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "validAddress",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
 				"name": "_stuIndex",
 				"type": "uint256"
 			}
@@ -334,33 +194,6 @@ var contractABI = [
 		"constant": true,
 		"inputs": [
 			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "Evals",
-		"outputs": [
-			{
-				"name": "stuAddress",
-				"type": "address"
-			},
-			{
-				"name": "reviewIndex",
-				"type": "uint256"
-			},
-			{
-				"name": "evaluateTime",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
 				"name": "_stuIndex",
 				"type": "uint256"
 			}
@@ -373,45 +206,6 @@ var contractABI = [
 			},
 			{
 				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "Students",
-		"outputs": [
-			{
-				"name": "nickName",
-				"type": "string"
-			},
-			{
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"name": "department",
-				"type": "uint256"
-			},
-			{
-				"name": "Address",
-				"type": "address"
-			},
-			{
-				"name": "hasPendingOrder",
-				"type": "bool"
-			},
-			{
-				"name": "checkedOrderAlarm",
 				"type": "bool"
 			}
 		],
@@ -572,25 +366,6 @@ var contractABI = [
 		"constant": true,
 		"inputs": [
 			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "stuToOrderIndex",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
 				"name": "_restIndex",
 				"type": "uint256"
 			}
@@ -723,47 +498,6 @@ var contractABI = [
 		"type": "function"
 	},
 	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "Exchanges",
-		"outputs": [
-			{
-				"name": "tokenAmount",
-				"type": "uint256"
-			},
-			{
-				"name": "isFinished",
-				"type": "bool"
-			},
-			{
-				"name": "direction",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "getOwner",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"constant": false,
 		"inputs": [
 			{
@@ -796,57 +530,6 @@ var contractABI = [
 		],
 		"payable": false,
 		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "Orders",
-		"outputs": [
-			{
-				"name": "restIndex",
-				"type": "uint256"
-			},
-			{
-				"name": "stuIndex",
-				"type": "uint256"
-			},
-			{
-				"name": "status",
-				"type": "string"
-			},
-			{
-				"name": "recievingAddress",
-				"type": "string"
-			},
-			{
-				"name": "menuNum",
-				"type": "uint256"
-			},
-			{
-				"name": "totalPrice",
-				"type": "uint256"
-			},
-			{
-				"name": "tokenUsed",
-				"type": "uint256"
-			},
-			{
-				"name": "actualPrice",
-				"type": "uint256"
-			},
-			{
-				"name": "orderTime",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -889,123 +572,6 @@ var contractABI = [
 			{
 				"name": "",
 				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "Menus",
-		"outputs": [
-			{
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"name": "price",
-				"type": "uint256"
-			},
-			{
-				"name": "explanation",
-				"type": "string"
-			},
-			{
-				"name": "restIndex",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "restCandidates",
-		"outputs": [
-			{
-				"name": "nickName",
-				"type": "string"
-			},
-			{
-				"name": "restName",
-				"type": "string"
-			},
-			{
-				"name": "phoneNumber",
-				"type": "string"
-			},
-			{
-				"name": "physicalAddress",
-				"type": "string"
-			},
-			{
-				"name": "explanation",
-				"type": "string"
-			},
-			{
-				"name": "category",
-				"type": "uint256"
-			},
-			{
-				"name": "tokenPromise",
-				"type": "uint256"
-			},
-			{
-				"name": "Address",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "stuCandidates",
-		"outputs": [
-			{
-				"name": "nickName",
-				"type": "string"
-			},
-			{
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"name": "department",
-				"type": "uint256"
-			},
-			{
-				"name": "Address",
-				"type": "address"
-			},
-			{
-				"name": "hasPendingOrder",
-				"type": "bool"
-			},
-			{
-				"name": "checkedOrderAlarm",
-				"type": "bool"
 			}
 		],
 		"payable": false,
@@ -1351,15 +917,6 @@ var contractABI = [
 	},
 	{
 		"constant": false,
-		"inputs": [],
-		"name": "payEther",
-		"outputs": [],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"constant": false,
 		"inputs": [
 			{
 				"name": "_restIndex",
@@ -1393,7 +950,7 @@ var contractABI = [
 		"type": "constructor"
 	}
 ];
-var contractAddress = "0x887828d4d7bba5fc22b94c5887516ea11a790331";
+var contractAddress = "0x3839c8a0cc393bfa927935252565b00e661ab98d";
 var BCR = web3.eth.contract(contractABI);
 BCRiders = BCR.at(contractAddress);
 
