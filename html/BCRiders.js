@@ -1,10 +1,22 @@
-    
-
-var BCRiders;
 var web3js;
 
-function startApplication() {
-    var contractABI = [
+
+window.addEventListener('load', function() {
+    // Checking if Web3 has been injected by the browser (Mist/MetaMask)
+    if (typeof web3 !== 'undefined') {
+      // Use MetaMask's provider
+      web3js = new Web3(web3.currentProvider);
+    } else {
+        alert("Please install Metamask!!");
+        window.location.href = 'http://cubechainblog.com/?p=937';
+    }
+
+});
+
+
+var BCRiders;
+
+var contractABI = [
         {
             "constant": false,
             "inputs": [
@@ -1384,20 +1396,7 @@ function startApplication() {
             "type": "constructor"
         }
     ];
-    var contractAddress = "0x6cD8747Cd6E84E4101Bf0b7f212281a55951c22f";
-    var BCR = web3js.eth.contract(contractABI);
-    BCRiders = BCR.at(contractAddress);
-    }
+var contractAddress = "0x6cD8747Cd6E84E4101Bf0b7f212281a55951c22f";
+var BCR = web3js.eth.contract(contractABI);
+BCRiders = BCR.at(contractAddress);
 
-window.addEventListener('load', function(startApplication) {
-    // Checking if Web3 has been injected by the browser (Mist/MetaMask)
-    if (typeof web3 !== 'undefined') {
-      // Use MetaMask's provider
-      web3js = new Web3(web3.currentProvider);
-    } else {
-        alert("Please install Metamask!!");
-        window.location.href = 'http://cubechainblog.com/?p=937';
-    }
-
-    startApplication();
-}) ; 
