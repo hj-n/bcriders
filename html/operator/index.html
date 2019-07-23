@@ -22,12 +22,15 @@
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
 		
 </head>
+
+
 <!-- put this code between "HEAD" tag and "BODY" tag.    -->
-<!-- ====================================================-->
+<!-- ====================================================-
 <script type=”text/javascript” src=”../web3.min.js”></script>
 <script type="text/javascript" src="../BCRiders.js"></script>
-<!-- ====================================================-->
+ ====================================================-->
 <!-- put this code between "HEAD" tag and "BODY" tag.    -->
+
 <body>
 
 <!-- preloader section -->
@@ -85,12 +88,12 @@
 				<h1 class="heading">User Admission</h1>
 				<hr>
 			</div>
-			<input name="address" type="text" class="form-control" id="name" placeholder="Account">   <!-- address validation-->
+			<input name="address" type="text" class="form-control" id="validation" placeholder="Account">   <!-- address validation-->
 
 			<div class="col-md-offset-1 col-md-10 col-sm-12 wow fadeIn" data-wow-delay="0.9s">
 					
 					<div class="col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6">
-						<input name="submit" onclick="validateAddress( );" type="submit" class="form-control" id="submit" value="Allow">
+						<input name="submit" onclick="return validateAddress();" type="submit" class="form-control" id="submit" value="Allow">
 					</div>
 			</div>
 		</div>
