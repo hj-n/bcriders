@@ -1395,7 +1395,7 @@ var contractABI = [
         }
     ];
 var contractAddress = "0x6cD8747Cd6E84E4101Bf0b7f212281a55951c22f";
-var BCR = web3js.eth.contract(contractABI);
+var BCR = web3.eth.contract(contractABI);
 BCRiders = BCR.at(contractAddress);
 
 
