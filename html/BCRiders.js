@@ -1388,7 +1388,7 @@ function startApplication(web3js) {
     BCRiders = BCR.at(contractAddress);
     }
 
-window.addEventListener('load', function(startApplication) {
+window.addEventListener('load', function() {
     // Checking if Web3 has been injected by the browser (Mist/MetaMask)
     if (typeof web3 !== 'undefined') {
       // Use MetaMask's provider
