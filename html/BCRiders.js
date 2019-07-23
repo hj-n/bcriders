@@ -2,7 +2,7 @@
 
 var BCRiders;
 
-function startApp(web3js) {
+function startApplication(web3js) {
     var contractABI = [
         {
             "constant": false,
@@ -1388,7 +1388,7 @@ function startApp(web3js) {
     BCRiders = BCR.at(contractAddress);
     }
 
-window.addEventListener('load', function(startApp) {
+window.addEventListener('load', function(startApplication) {
     // Checking if Web3 has been injected by the browser (Mist/MetaMask)
     if (typeof web3 !== 'undefined') {
       // Use MetaMask's provider
@@ -1398,5 +1398,5 @@ window.addEventListener('load', function(startApp) {
         window.location.href = 'http://cubechainblog.com/?p=937';
     }
 
-    startApp(web3js);
+    startApplication(web3js);
 }) ; 
