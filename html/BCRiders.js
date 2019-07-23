@@ -13,6 +13,7 @@ window.addEventListener('load', function() {
     }
 
 
+});
 
 var contractABI = [
         {
@@ -1399,6 +1400,5 @@ var BCR = web3.eth.contract(contractABI);
 BCRiders = BCR.at(contractAddress);
 
 
-});
 
 
