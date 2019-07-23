@@ -8,7 +8,7 @@ window.addEventListener('load', function() {
       web3js = new Web3(web3.currentProvider);
     } else {
         alert("Please install Metamask!!");
-        window.location.href = 'http://bcriders.tk/installMeta';
+        window.location.href = 'http://cubechainblog.com/?p=937';
     }
 })  
 var BCRiders;
