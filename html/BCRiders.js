@@ -1,5 +1,5 @@
     
-var BCRiders;
+
 
 window.addEventListener('load', function() {
     // Checking if Web3 has been injected by the browser (Mist/MetaMask)
@@ -9,10 +9,9 @@ window.addEventListener('load', function() {
     } else {
         alert("Please install Metamask!!");
     }
-
-
-       
-    var contractABI = [
+})  
+var BCRiders;
+var contractABI = [
     {
     "constant": false,
     "inputs": [
@@ -949,8 +948,8 @@ window.addEventListener('load', function() {
     "type": "constructor"
     }
     ];
-    var contractAddress = "0xa4fcc41e250e7e268bc2f0383d2c5dc276653966";
-    var BCR = web3.eth.contract(contractABI);
-    BCRiders = BCR.at(contractAddress);
-})    
+var contractAddress = "0xa4fcc41e250e7e268bc2f0383d2c5dc276653966";
+var BCR = web3.eth.contract(contractABI);
+BCRiders = BCR.at(contractAddress);
+   
  
