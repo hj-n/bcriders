@@ -1,6 +1,7 @@
     
 
 var BCRiders;
+var web3js;
 
 function startApplication(web3js) {
     var contractABI = [
