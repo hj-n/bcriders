@@ -63,12 +63,12 @@ contract BCRidersRestaurant is BCRidersStorage {
         return (shrinkedIndexList, restMenuNum);
     }
     
-    function getMenuInfo(uint _menuIndex) public view returns (string, uint) {    // retruns name and price of the menu
-        return (Menus[_menuIndex].name, Menus[_menuIndex].price);
+    function getMenuInfo(uint _menuIndex) public view returns (string, uint, string) {    // retruns name and price of the menu
+        return (Menus[_menuIndex].name, Menus[_menuIndex].price, Menus[_menuIndex].explanation);
     }
     
-    function addNewMenu(string _name, uint _price, uint _restIndex) public onlyRestAccount(_restIndex) {
-        Menus.push(Menu(_name, _price, _restIndex));
+    function addNewMenu(string _name, uint _price, string _explanation, uint _restIndex) public onlyRestAccount(_restIndex) {
+        Menus.push(Menu(_name, _price, _explanation, _restIndex));
         menuNum++;
     }
     

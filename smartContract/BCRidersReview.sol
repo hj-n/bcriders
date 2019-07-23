@@ -121,12 +121,4 @@ contract BCRidersReview is BCRidersOrder {
         }
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
 }

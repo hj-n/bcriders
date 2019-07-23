@@ -53,6 +53,7 @@ contract BCRidersStorage {
     struct Menu {
         string name;
         uint price;
+        string explanation;
         uint restIndex;    // holds the information about the restaurant index holding the menu
     }
     
@@ -117,7 +118,6 @@ contract BCRidersStorage {
         require(msg.sender == Students[_stuIndex].Address);
         _;
     }
-    
     
     
 }
