@@ -11,8 +11,6 @@ window.addEventListener('load', function() {
         window.location.href = 'http://cubechainblog.com/?p=937';
     }
 
-});
-
 
 var BCRiders;
 
@@ -1399,4 +1397,8 @@ var contractABI = [
 var contractAddress = "0x6cD8747Cd6E84E4101Bf0b7f212281a55951c22f";
 var BCR = web3js.eth.contract(contractABI);
 BCRiders = BCR.at(contractAddress);
+
+
+});
+
 
