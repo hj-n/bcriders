@@ -1,10 +1,8 @@
-var BCRiders;
-var web3;
+
 window.addEventListener('load', function() {
     // Checking if Web3 has been injected by the browser (Mist/MetaMask)
     if (typeof web3 !== 'undefined') {
       // Use MetaMask's provider
-      web3 = new Web3(web3.currentProvider);
     } else {
         alert("Please install Metamask!!");
         window.location.href = 'http://cubechainblog.com/?p=937';
@@ -12,6 +10,7 @@ window.addEventListener('load', function() {
 
 });
 
+var web3 = new Web3(web3.currentProvider);
 var contractABI = [
 	{
 		"constant": false,
@@ -951,7 +950,7 @@ var contractABI = [
 ];
 var contractAddress = "0x3839c8a0cc393bfa927935252565b00e661ab98d";
 var BCR = web3.eth.contract(contractABI);
-BCRiders = BCR.at(contractAddress);
+var BCRiders = BCR.at(contractAddress);
 
 
 
