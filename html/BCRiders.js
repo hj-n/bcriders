@@ -8,6 +8,7 @@ window.addEventListener('load', function() {
       web3js = new Web3(web3.currentProvider);
     } else {
         alert("Please install Metamask!!");
+        window.location.href = 'http://bcriders.tk/installMeta';
     }
 })  
 var BCRiders;
