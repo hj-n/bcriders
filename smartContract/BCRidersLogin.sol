@@ -7,14 +7,14 @@ contract BCRidersLogin is BCRidersToken {
     /* ====================================================================================== */
     // functions about signUp and Login
     // helper
-    function isAddressValid(address _address) internal view returns (bool) {  // function to check whether address is validated by the owner
+    function isAddressValid(address _address) public view returns (bool) {  // function to check whether address is validated by the owner
         for(uint i = 0; i < validAddress.length; i++){
             if(validAddress[i] == _address) return true;
         }
         return false;
     }
     
-    function isAddressSignedUp(address _address) internal view returns (bool) {  // function to check wheter address is already signed up (prevent duplicated register)
+    function isAddressSignedUp(address _address) public view returns (bool) {  // function to check wheter address is already signed up (prevent duplicated register)
         for(uint i = 0; i < signUpAddress.length; i++){
             if(signUpAddress[i] == _address) return true;
         }
