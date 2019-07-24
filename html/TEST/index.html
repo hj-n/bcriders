@@ -971,11 +971,8 @@
 
                     var contract = web3.eth.contract(contractABI);
                     var contractInstance = contract.at(contractAddress);
-                    contractInstance.isSignedUpUser("aaa", function(err, result) {
-                        alert(result[1]);
-                    });
                     contractInstance.isAddressValid("0x13A4c6F99A4a4bE4BC9c98c754C416268FD20274", function(err, result){
-                        console.log(result)
+                        alert(result)
                     });
 
                 } catch (error) {
