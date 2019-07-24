@@ -36,7 +36,7 @@ function signUpAccount() {
         break;
     }
     BCRiders.requestStuRegister(nickname, name, a, function(err, result) {
-        console.log(result);
+        console.log(result[0]);
         if(result == true) {
             alert("Sign Up success! Hello, "+name+"!!");
             window.location.href="../login";
