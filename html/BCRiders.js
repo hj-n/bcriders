@@ -120,15 +120,6 @@ var contractABI =[
 	},
 	{
 		"constant": false,
-		"inputs": [],
-		"name": "giveEther",
-		"outputs": [],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"constant": false,
 		"inputs": [
 			{
 				"name": "_explanation",
@@ -864,8 +855,8 @@ var contractABI =[
 		"stateMutability": "view",
 		"type": "function"
 	}
-]; 
-var contractAddress = "0xc213649707e12fe154a956c39231124140631eb5";
+];
+var contractAddress = "0xdc2b035844137cfe249eea62fdcd2b817a660ce1";
 var web3;
 
 
