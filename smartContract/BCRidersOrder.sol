@@ -29,7 +29,7 @@ contract BCRidersOrder is BCRidersStorage {
     
     
     // public interface
-    function orderFood(uint _restIndex, uint _stuIndex, string memory _recievingAddress, uint[] memory _menuIndexList, uint[] memory _menuCountList, uint _menuNum, uint _totalPrice, uint _tokenUsed, uint _actualPrice) public onlyStuAccount(_stuIndex) { 
+    function orderFood(uint _restIndex, uint _stuIndex, string memory _recievingAddress, uint[] memory _menuIndexList, uint[] memory _menuCountList, uint _menuNum, uint _totalPrice, uint _tokenUsed, uint _actualPrice) public { 
         Orders.push(Order(_restIndex, _stuIndex, _recievingAddress,
                           "Pending", _menuIndexList,  _menuCountList, 
                           _menuNum, _totalPrice, _tokenUsed, _actualPrice));     // add new order to the list

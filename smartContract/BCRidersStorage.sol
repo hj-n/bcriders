@@ -35,6 +35,18 @@ contract BCRidersStorage {
     address public owner;
     uint lastDistributedTime;    // last time "DistributeToken" has executed
     
+    // constructor
+    constructor() public {
+        // initialization of variables from BCRidersStorage
+        stuNum = 0;
+        restNum = 0;
+        menuNum = 0;
+        owner = msg.sender;
+        Token.totalTokenPublished = 0;
+        Token.totalTokenInNetwork = 0;
+        lastDistributedTime = now;
+    }
+    
     /* ====================================================================================== */
     // token info
     struct ridersToken {     // Riders Token info

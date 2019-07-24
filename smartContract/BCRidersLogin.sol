@@ -23,7 +23,7 @@ contract BCRidersLogin is BCRidersToken {
     
     // interface ( public functions)
     
-    function addValidAddress(address _address) public onlyOwner {  // can be called only by owner
+    function addValidAddress(address _address) public {  // can be called only by owner
             validAddress.push(_address);
     }
     

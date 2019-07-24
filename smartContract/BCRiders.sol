@@ -6,24 +6,12 @@ import "./BCRidersReview.sol";
 
 contract BCRiders is BCRidersRestaurant, BCRidersLogin, BCRidersReview {
     
-    function setOwner(address _address) public {
-        owner = _address;
-    }
+   
     
-    // constructor
-    constructor() public {
-        // initialization of variables from BCRidersStorage
-        stuNum = 0;
-        restNum = 0;
-        menuNum = 0;
-        owner = msg.sender;
-        Token.totalTokenPublished = 0;
-        Token.totalTokenInNetwork = 0;
-        lastDistributedTime = now;
-    }
+    
     
     // public function 
-    function distributeToken() public onlyOwner {
+    function distributeToken() public {
         require(now > lastDistributedTime + 300);       // 1 weeks should pass after distribution// change 604800 -> 300 for demo
         
         /* ==========================================================*/

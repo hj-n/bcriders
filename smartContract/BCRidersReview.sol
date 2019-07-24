@@ -33,7 +33,7 @@ contract BCRidersReview is BCRidersOrder {
 
     // interface (public functions)
     
-    function writeReview(uint _restIndex, uint _stuIndex, uint _restStar, string memory _title, string memory _content) public onlyStuAccount(_stuIndex) {
+    function writeReview(uint _restIndex, uint _stuIndex, uint _restStar, string memory _title, string memory _content) public {
         bool isThereOrder =false;
         for(uint i=0; i < Orders.length; i++){
             if(Orders[i].restIndex == _restIndex && Orders[i].stuIndex == _stuIndex) {
@@ -83,7 +83,7 @@ contract BCRidersReview is BCRidersOrder {
     }
     
     
-    function evaluateReview(uint _reviewIndex, uint _stuIndex, uint _reviewStar) public onlyStuAccount(_stuIndex) returns (bool) {  // return false if there is already an evaluation to such review
+    function evaluateReview(uint _reviewIndex, uint _stuIndex, uint _reviewStar) public returns (bool) {  // return false if there is already an evaluation to such review
         for(uint i = 0; i < Evals.length; i++){
             if(Evals[i].reviewIndex == _reviewIndex) {
                 return false;

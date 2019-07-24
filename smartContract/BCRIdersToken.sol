@@ -46,14 +46,14 @@ contract BCRidersToken is BCRidersStorage {      // contract for token and Ether
         return Token.addressToToken[_address];
     }
     
-    function requestExchange(uint _tokenAmount, bool _direction, uint _restIndex) public onlyRestAccount(_restIndex) {      // Send a request about exchanging
+    function requestExchange(uint _tokenAmount, bool _direction, uint _restIndex) public  {      // Send a request about exchanging
         require(Exchanges[msg.sender].isFinished);
         Exchanges[msg.sender].tokenAmount = _tokenAmount;
         Exchanges[msg.sender].isFinished = false;
         Exchanges[msg.sender].direction = _direction;
     }
     
-    function validateExchange(uint _restIndex) public onlyOwner {     // validate and process token transfer
+    function validateExchange(uint _restIndex) public {     // validate and process token transfer
         address user = Restaurants[_restIndex].Address;
         require(!Exchanges[user].isFinished);
         
@@ -67,7 +67,7 @@ contract BCRidersToken is BCRidersStorage {      // contract for token and Ether
         Exchanges[user].isFinished = true;   
     }
     
-    function getRequestExchange() public view onlyOwner returns (address[] memory, uint[] memory , uint[] memory , bool[] memory , uint) {    // Return arrays of untreated request's info: address, rest index, token amount, direction, and the length of these arrays
+    function getRequestExchange() public view returns (address[] memory, uint[] memory , uint[] memory , bool[] memory , uint) {    // Return arrays of untreated request's info: address, rest index, token amount, direction, and the length of these arrays
         address[] memory addressList = new address[](restNum);
         uint[] memory restIndexList = new uint[](restNum);
         uint[] memory tokenAmountList = new uint[](restNum);

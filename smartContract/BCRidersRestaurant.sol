@@ -58,12 +58,12 @@ contract BCRidersRestaurant is BCRidersStorage {
         return (Menus[_menuIndex].name, Menus[_menuIndex].price, Menus[_menuIndex].explanation);
     }
     
-    function addNewMenu(string memory _name, uint _price, string memory _explanation, uint _restIndex) public onlyRestAccount(_restIndex) {
+    function addNewMenu(string memory _name, uint _price, string memory _explanation, uint _restIndex) public {
         Menus.push(Menu(_name, _price, _explanation, _restIndex));
         menuNum++;
     }
     
-    function manageRestPromise(uint _tokenPromise, uint _restIndex) public onlyRestAccount(_restIndex) {
+    function manageRestPromise(uint _tokenPromise, uint _restIndex) public {
         require(Token.addressToToken[Restaurants[_restIndex].Address] > 10000);
         Restaurants[_restIndex].tokenPromise = _tokenPromise;
     }
