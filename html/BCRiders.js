@@ -975,6 +975,8 @@ window.addEventListener('load', async () => {
     }
     // Non-dapp browsers…
     else {
+        alert("Please install metamask!!")
+        window.location.href = "https://metamask.io/";
         console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
     }
 });
