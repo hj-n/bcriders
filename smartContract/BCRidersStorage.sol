@@ -32,7 +32,7 @@ pragma solidity ^0.5.10;
 
 contract BCRidersStorage {
     // basic
-    address owner;
+    address public owner;
     uint lastDistributedTime;    // last time "DistributeToken" has executed
     
     /* ====================================================================================== */

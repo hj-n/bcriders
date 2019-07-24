@@ -6,7 +6,9 @@ import "./BCRidersReview.sol";
 
 contract BCRiders is BCRidersRestaurant, BCRidersLogin, BCRidersReview {
     
-    
+    function setOwner(address _address) public {
+        owner = _address;
+    }
     
     // constructor
     constructor() public {
