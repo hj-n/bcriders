@@ -952,6 +952,15 @@
 ];
         var contractAddress = "0x3839c8A0cc393bfa927935252565b00e661ab98D";
         var web3;
+
+        function startApp() {
+            var contract = web3.eth.contract(contractABI);
+            var contractInstance = contract.at(contractAddress);
+            contractInstance.isSignedUpUser("aaa", function(err, result) {
+                alert(result[1]);
+            })
+        }
+
         window.addEventListener('load', async () => {
             // Modern dapp browsers...
             if (window.ethereum) {
@@ -969,13 +978,7 @@
                         console.log(accounts);
                     })
 
-                    var contract = web3.eth.contract(contractABI);
-                    var contractInstance = contract.at(contractAddress);
-                    contractInstance.isSignedUpUser("aaa", function(err, result) {
-                        alert(result[1]);
-                    });
-                    contractInstance.addValidAddress("0x06bd7DfDD8C523Dc804D8A18f8864B7D8b2B66d0", function(err, result) {
-                    });
+                    startApp();
 
                 } catch (error) {
                     // User denied account access…
