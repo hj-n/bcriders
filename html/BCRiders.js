@@ -856,7 +856,7 @@ var contractABI =[
 		"type": "function"
 	}
 ];
-var contractAddress = "0xdc2b035844137cfe249eea62fdcd2b817a660ce1";
+var contractAddress = "0xc06ae15a62303584afa368c1caac399ffe4f8d95";
 var web3;
 
 
