@@ -1,4 +1,4 @@
-pragma solidity ^0.4.18;
+pragma solidity ^0.5.10;
 
 import "./BCRidersStorage.sol";
 
@@ -36,10 +36,9 @@ contract BCRidersToken is BCRidersStorage {      // contract for token and Ether
     
     
     // About ether
-    function requestEther() public returns (bool) {  // contract needs sufficient ether to handle this -> owner should send sufficient ether right after deploying it.
-        if(msg.sender.balance > 5 ether) return false;    // make accounts cannot send request when they have enough balance
+    function requestEther() public {  // contract needs sufficient ether to handle this -> owner should send sufficient ether right after deploying it.
+        require(msg.sender.balance < 5 ether);    // make accounts cannot send request when they have enough balance
         msg.sender.transfer(5 ether);
-        return true;
     }
     
     // About Token
@@ -68,7 +67,7 @@ contract BCRidersToken is BCRidersStorage {      // contract for token and Ether
         Exchanges[user].isFinished = true;   
     }
     
-    function getRequestExchange() public view onlyOwner returns (address[], uint[], uint[], bool[], uint) {    // Return arrays of untreated request's info: address, rest index, token amount, direction, and the length of these arrays
+    function getRequestExchange() public view onlyOwner returns (address[] memory, uint[] memory , uint[] memory , bool[] memory , uint) {    // Return arrays of untreated request's info: address, rest index, token amount, direction, and the length of these arrays
         address[] memory addressList = new address[](restNum);
         uint[] memory restIndexList = new uint[](restNum);
         uint[] memory tokenAmountList = new uint[](restNum);
@@ -85,19 +84,7 @@ contract BCRidersToken is BCRidersStorage {      // contract for token and Ether
                 num++;
             }
         }
-        
-        address[] memory shrinkedAddressList = new address[](num);   // shrink it to smaller array
-        uint[] memory shrinkedRestIndexList = new uint[](num);
-        uint[] memory shrinkedTokenAmountList = new uint[](num);
-        bool[] memory shrinkedDirectionList = new bool[](num);
-        for(uint j = 0; j < num; j++) {
-            shrinkedAddressList[j] = addressList[j];
-            shrinkedRestIndexList[j] = restIndexList[j];
-            shrinkedTokenAmountList[j] = tokenAmountList[j];
-            shrinkedDirectionList[j] = directionList[j];
-        }
-        
-        return (shrinkedAddressList, shrinkedRestIndexList, shrinkedTokenAmountList, shrinkedDirectionList, num);
+        return (addressList, restIndexList, tokenAmountList, directionList, num);
     }
     
     

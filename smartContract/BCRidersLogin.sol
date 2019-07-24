@@ -1,4 +1,4 @@
-pragma solidity ^0.4.18;
+pragma solidity ^0.5.10;
 
 import "./BCRidersToken.sol";
 
@@ -27,34 +27,22 @@ contract BCRidersLogin is BCRidersToken {
             validAddress.push(_address);
     }
     
-    function requestStuRegister(string _nickName, string _name, uint8 _department) public returns (bool){   // handle signUp of student
-        if(!isAddressValid(msg.sender)) return false;
-        if (isAddressSignedUp(msg.sender)) return false;     // prevent duplicated register
+    function requestStuRegister(string memory _nickName, string memory _name, uint8 _department) public {   // handle signUp of student
+        require(isAddressValid(msg.sender));
+        require(!isAddressSignedUp(msg.sender));     // prevent duplicated register
         findStuIndex[msg.sender] = stuNum;
         Students[stuNum] = Student(_nickName, _name, _department, msg.sender, false, true);
         stuNum++;      // increase for next register student index
         signUpAddress.push(msg.sender);
         isAddressStuOrRest[msg.sender] = true;
-        return true;
     }
     
-    function requestRestRegister(string _nickName, string _restName, string _phoneNumber, string _physicalAddress, uint _category, uint _tokenPromise) public returns (bool) { // handle signUp of student
-        if(!isAddressValid(msg.sender)) return false;
-        if (isAddressSignedUp(msg.sender)) return false;
-        
-        uint tokenPromiseModified;              // Set tokenPromise to certain range ( to avoid too much or less promise)
-        if (_tokenPromise > 50000) {
-            tokenPromiseModified = 50000;
-        } 
-        else if (_tokenPromise < 10000) {
-            tokenPromiseModified = 10000;
-        }
-        else {
-            tokenPromiseModified = _tokenPromise;
-        }
+    function requestRestRegister(string memory _nickName, string memory _restName, string memory _phoneNumber, string memory _physicalAddress, uint _category, uint _tokenPromise) public { // handle signUp of student
+        require(isAddressValid(msg.sender));
+        require(!isAddressSignedUp(msg.sender));
         
         findRestIndex[msg.sender] = restNum;
-        Restaurants[restNum] = Restaurant(_nickName, _restName, _phoneNumber, _physicalAddress, "", _category, tokenPromiseModified, msg.sender);
+        Restaurants[restNum] = Restaurant(_nickName, _restName, _phoneNumber, _physicalAddress, "", _category, _tokenPromise, msg.sender);
         restNum++;
         
         signUpAddress.push(msg.sender);
@@ -63,35 +51,18 @@ contract BCRidersLogin is BCRidersToken {
         Token.totalTokenPublished += 1500000;
         Token.addressToToken[msg.sender] = 1500000;       // Give Initial Token
         Exchanges[msg.sender] = Exchange(0, true, true);     // set Default to use in exchange request
-        return true;
     }
     
-    function isSignedUpUser(string _nickName) public view returns (bool, string) {
+    function isSignedUpUser() public view returns (bool) {
         if(isAddressValid(msg.sender)) {
             if(isAddressSignedUp(msg.sender)){
                 if(isAddressStuOrRest[msg.sender]) {    // if student
-                    if(keccak256(Students[findStuIndex[msg.sender]].nickName) == keccak256(_nickName)) {
-                        return (true, "Student");
-                    }
-                    else {
-                        return (false, "WrongNickName");
-                    }
+                    return true;
                 }
-                else {   // if restaurant
-                    if(keccak256(Restaurants[findRestIndex[msg.sender]].nickName) == keccak256(_nickName)) {
-                        return (true, "Restaurant");
-                    }
-                    else{
-                        return (false, "WrongNickName");
-                    }
-                }
-            }
-            else {
-                return (false, "NotSignedUp");
             }
         }
         else {
-            return (false, "NotRegistered");
+            return false;
         }
     }
     // End of functions about signUp and Login

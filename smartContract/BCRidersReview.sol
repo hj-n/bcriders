@@ -1,4 +1,4 @@
-pragma solidity ^0.4.18;
+pragma solidity ^0.5.10;
 
 import "./BCRidersOrder.sol";
 
@@ -14,9 +14,8 @@ contract BCRidersReview is BCRidersOrder {
         uint numReviewStar;   // num of people who evaluated the review
         string title;
         string content;
-        string reply;    // This is filled by rest
-        bool isReply;    // false: no review reply, true: There exist review reply
-        uint reviewTime;
+        string reply;
+        bool isReply;
     }
     
     Review[] Reviews;
@@ -34,20 +33,19 @@ contract BCRidersReview is BCRidersOrder {
 
     // interface (public functions)
     
-    function writeReview(uint _restIndex, uint _stuIndex, uint _restStar, string _title, string _content) public onlyStuAccount(_stuIndex) returns (bool) {
-        uint timePassed;
-        bool isThereOrder;
-        (isThereOrder, timePassed) = getLastOrderTimePassed(_restIndex);
-        if (!isThereOrder || timePassed > 604800) {    // if there is no order or 1 weeks had passed
-            return false;
+    function writeReview(uint _restIndex, uint _stuIndex, uint _restStar, string memory _title, string memory _content) public onlyStuAccount(_stuIndex) {
+        bool isThereOrder =false;
+        for(uint i=0; i < Orders.length; i++){
+            if(Orders[i].restIndex == _restIndex && Orders[i].stuIndex == _stuIndex) {
+                isThereOrder = true;
+            }
         }
-        else {
-            Reviews.push(Review(_restIndex, _stuIndex, _restStar, 0, 0,  _title, _content, "", false, now));
-            return true;
+        if (!isThereOrder) {    // if there is no order or 1 weeks had passed
+            Reviews.push(Review(_restIndex, _stuIndex, _restStar, 0, 0,  _title, _content,"", false));
         }
     }
     
-    function getRestReviewList(uint _restIndex) public view returns (uint[], uint) {   // retrun the list of review of restaurant's index and it's length
+    function getRestReviewList(uint _restIndex) public view returns (uint[] memory, uint) {   // retrun the list of review of restaurant's index and it's length
         uint[] memory restReviewList = new uint[](Reviews.length);
         uint num = 0;
         for(uint i = Reviews.length - 1; i >= 0; i--){
@@ -57,14 +55,10 @@ contract BCRidersReview is BCRidersOrder {
             }
         }
         
-        uint[] memory shrinkedReviewList = new uint[](num);
-        for(uint j = 0; j < num; j++){
-            shrinkedReviewList[j] = restReviewList[j];
-        }
-        return (shrinkedReviewList, num);
+        return (restReviewList, num);
     }
     
-    function getStuReviewList(uint _stuIndex) public view returns (uint[], uint) {   // same mechanism with getRestReviewList
+    function getStuReviewList(uint _stuIndex) public view returns (uint[] memory, uint) {   // same mechanism with getRestReviewList
         uint[] memory stuReviewList = new uint[](Reviews.length);
         uint num = 0;
         for(uint i = Reviews.length - 1; i >= 0; i--){
@@ -73,15 +67,10 @@ contract BCRidersReview is BCRidersOrder {
                 num++;
             }
         }
-        
-        uint[] memory shrinkedReviewList = new uint[](num);
-        for(uint j = 0; j < num; j++){
-            shrinkedReviewList[j] = stuReviewList[j];
-        }
-        return (shrinkedReviewList, num);
+        return (stuReviewList, num);
     }
     
-    function getReviewInfo(uint _reviewIndex) public view returns (uint, uint, uint, uint, string, string, string, bool, uint) { // returns the info of review
+    function getReviewInfo(uint _reviewIndex) public view returns (uint, uint, uint, uint, string memory, string memory, string memory, bool) { // returns the info of review
         Review memory r = Reviews[_reviewIndex];
         return (r.restIndex,
                 r.stuIndex,
@@ -90,8 +79,7 @@ contract BCRidersReview is BCRidersOrder {
                 r.title,
                 r.content,
                 r.reply,
-                r.isReply,
-                r.reviewTime);
+                r.isReply);
     }
     
     
@@ -110,7 +98,7 @@ contract BCRidersReview is BCRidersOrder {
         return true;
     }
     
-    function writeReviewReply(uint _reviewIndex, string _reply) public returns (bool) {  // return false if msg.sender is not the restaurant that review says about
+    function writeReviewReply(uint _reviewIndex, string memory _reply) public returns (bool) {  // return false if msg.sender is not the restaurant that review says about
         if(findRestIndex[msg.sender] != Reviews[_reviewIndex].restIndex) {  // check whether Restaurant is review's objective
             return false;
         }
