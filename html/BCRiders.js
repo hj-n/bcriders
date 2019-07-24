@@ -1,5 +1,5 @@
 var contract;
-var contractInstance;
+var BCRiders;
 var contractABI = [
 	{
 		"constant": false,
