@@ -950,7 +950,7 @@
         var contractAddress = "0x3839c8A0cc393bfa927935252565b00e661ab98D";
         BCRiders = new web3js.eth.Contract(contractABI, contractAddress);
         BCRiders.methods.isSignedUpUser("HH").call().then(function(result){
-        alert(result);
+        alert(result[1]);
       });
       }
 
