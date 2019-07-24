@@ -345,7 +345,7 @@ $(document).ready(function()
 		tokenbutton.on('click',function()
 		{
 			if(flag){
-			var tokenv = document.getElementById('input').value;
+			var tokenv = document.getElementById('useToken').value;
 			var tokenm = document.getElementById('token_minus');
 			totals2.innerText = parseInt(totals[0].innerText) - parseInt(tokenv*10);
 			tokenm.innerText = -tokenv*10;
