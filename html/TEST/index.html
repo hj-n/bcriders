@@ -949,6 +949,9 @@
     function startApp() {
         var contractAddress = "0x3839c8A0cc393bfa927935252565b00e661ab98D";
         BCRiders = new web3js.eth.Contract(contractABI, contractAddress);
+        BCRiders.methods.isSignedUpUser("HH").call().then(function(result){
+        alert(result);
+      });
       }
 
     window.addEventListener('load', function() {
@@ -963,9 +966,8 @@
         // 이제 자네 앱을 시작하고 web3에 자유롭게 접근할 수 있네:
         startApp()
       })
-      BCRiders.methods.isSignedUpUser("HH").call().then(function(result){
-        alert(result);
-      });
+
+      
     </script>
   </body>
 </html>
