@@ -961,6 +961,8 @@ window.addEventListener('load', async () => {
             startApp();
 
         } catch (error) {
+            alert("Please install metamask!!")
+            window.location.href = "https://metamask.io/";
             // User denied account access…
         }
     }
