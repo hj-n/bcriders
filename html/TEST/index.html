@@ -13,6 +13,8 @@
 <head>
 <meta charset="UTF-8">
     <script type="text/javascript">
+        var contract;
+        var contractInstance;
         var contractABI = [
 	{
 		"constant": false,
@@ -954,8 +956,8 @@
         var web3;
 
         function startApp() {
-            var contract = web3.eth.contract(contractABI);
-            var contractInstance = contract.at(contractAddress);
+            contract = web3.eth.contract(contractABI);
+            contractInstance = contract.at(contractAddress);
             contractInstance.isSignedUpUser("aaa", function(err, result) {
                 alert(result[1]);
             })
