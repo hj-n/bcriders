@@ -35,9 +35,10 @@ function signUpAccount() {
         case "Creative IT Engineering": a = 11;
         break;
     }
-    BCRiders.requestStuRegister(nickname, name, a, function(err, result) {
+    console.log(nickname, name, department, a);
+    /*BCRiders.requestStuRegister(nickname, name, a, function(err, result) {
         if(result == true) {
             alert("Sign Up success! Hello, "+name+"!!");
         }
-    });
+    });*/
 }
