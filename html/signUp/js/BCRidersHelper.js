@@ -44,4 +44,4 @@ function signUpAccount() {
             alert("Failed! already signed up or didn't validated");
         }
     });
-}
+};
