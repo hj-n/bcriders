@@ -36,13 +36,6 @@ function signUpAccount() {
         break;
     }
     BCRiders.requestStuRegister(nickname, name, a, function(err, result) {
-        console.log(result[0]);
-        if(result[0] == true) {
-            alert("Sign Up success! Hello, "+name+"!!");
-            window.location.href="../login";
-        }
-        else {
-            alert("Failed! already signed up or didn't validated");
-        }
+        alert("If your were validate, you might succeded to sign up!");
     });
 };

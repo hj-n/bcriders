@@ -1,6 +1,32 @@
 var contract;
 var BCRiders;
-var contractABI = [
+var contractABI =[
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"name": "_price",
+				"type": "uint256"
+			},
+			{
+				"name": "_explanation",
+				"type": "string"
+			},
+			{
+				"name": "_restIndex",
+				"type": "uint256"
+			}
+		],
+		"name": "addNewMenu",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
 	{
 		"constant": false,
 		"inputs": [
@@ -17,189 +43,20 @@ var contractABI = [
 	},
 	{
 		"constant": false,
-		"inputs": [],
-		"name": "giveEther",
+		"inputs": [
+			{
+				"name": "_orderIndex",
+				"type": "uint256"
+			},
+			{
+				"name": "_isAccept",
+				"type": "bool"
+			}
+		],
+		"name": "confirmOrder",
 		"outputs": [],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "signUpAddress",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
 		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "Reviews",
-		"outputs": [
-			{
-				"name": "restIndex",
-				"type": "uint256"
-			},
-			{
-				"name": "stuIndex",
-				"type": "uint256"
-			},
-			{
-				"name": "restStar",
-				"type": "uint256"
-			},
-			{
-				"name": "reviewStar",
-				"type": "uint256"
-			},
-			{
-				"name": "numReviewStar",
-				"type": "uint256"
-			},
-			{
-				"name": "title",
-				"type": "string"
-			},
-			{
-				"name": "content",
-				"type": "string"
-			},
-			{
-				"name": "reply",
-				"type": "string"
-			},
-			{
-				"name": "isReply",
-				"type": "bool"
-			},
-			{
-				"name": "reviewTime",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "_restIndex",
-				"type": "uint256"
-			}
-		],
-		"name": "isUntreatedOrderExist",
-		"outputs": [
-			{
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "_address",
-				"type": "address"
-			}
-		],
-		"name": "getTokenInfo",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "Restaurants",
-		"outputs": [
-			{
-				"name": "nickName",
-				"type": "string"
-			},
-			{
-				"name": "restName",
-				"type": "string"
-			},
-			{
-				"name": "phoneNumber",
-				"type": "string"
-			},
-			{
-				"name": "physicalAddress",
-				"type": "string"
-			},
-			{
-				"name": "explanation",
-				"type": "string"
-			},
-			{
-				"name": "category",
-				"type": "uint256"
-			},
-			{
-				"name": "tokenPromise",
-				"type": "uint256"
-			},
-			{
-				"name": "Address",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "findStuIndex",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint16"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -209,70 +66,6 @@ var contractABI = [
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_tokenAmount",
-				"type": "uint256"
-			},
-			{
-				"name": "_direction",
-				"type": "bool"
-			},
-			{
-				"name": "_restIndex",
-				"type": "uint256"
-			}
-		],
-		"name": "requestExchange",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "_address",
-				"type": "address"
-			}
-		],
-		"name": "isAddressSignedUp",
-		"outputs": [
-			{
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "_restIndex",
-				"type": "uint256"
-			}
-		],
-		"name": "getLastOrderTimePassed",
-		"outputs": [
-			{
-				"name": "",
-				"type": "bool"
-			},
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -290,226 +83,14 @@ var contractABI = [
 		"type": "function"
 	},
 	{
-		"constant": true,
-		"inputs": [],
-		"name": "lastDistributedTime",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "validAddress",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "_stuIndex",
-				"type": "uint256"
-			}
-		],
-		"name": "getStuOrderList",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256[]"
-			},
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "Evals",
-		"outputs": [
-			{
-				"name": "stuAddress",
-				"type": "address"
-			},
-			{
-				"name": "reviewIndex",
-				"type": "uint256"
-			},
-			{
-				"name": "evaluateTime",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "Students",
-		"outputs": [
-			{
-				"name": "nickName",
-				"type": "string"
-			},
-			{
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"name": "department",
-				"type": "uint256"
-			},
-			{
-				"name": "Address",
-				"type": "address"
-			},
-			{
-				"name": "hasPendingOrder",
-				"type": "bool"
-			},
-			{
-				"name": "checkedOrderAlarm",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "isAddressStuOrRest",
-		"outputs": [
-			{
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "_menuIndex",
-				"type": "uint256"
-			}
-		],
-		"name": "getMenuInfo",
-		"outputs": [
-			{
-				"name": "",
-				"type": "string"
-			},
-			{
-				"name": "",
-				"type": "uint256"
-			},
-			{
-				"name": "",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "getRequestExchange",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address[]"
-			},
-			{
-				"name": "",
-				"type": "uint256[]"
-			},
-			{
-				"name": "",
-				"type": "uint256[]"
-			},
-			{
-				"name": "",
-				"type": "bool[]"
-			},
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "findRestIndex",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint16"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"constant": false,
-		"inputs": [],
-		"name": "requestEther",
+		"inputs": [
+			{
+				"name": "S",
+				"type": "uint256"
+			}
+		],
+		"name": "distributeTokenStudent",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
@@ -539,6 +120,15 @@ var contractABI = [
 	},
 	{
 		"constant": false,
+		"inputs": [],
+		"name": "giveEther",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": false,
 		"inputs": [
 			{
 				"name": "_explanation",
@@ -556,61 +146,48 @@ var contractABI = [
 		"type": "function"
 	},
 	{
-		"constant": true,
+		"constant": false,
 		"inputs": [
+			{
+				"name": "_restName",
+				"type": "string"
+			},
+			{
+				"name": "_phoneNumber",
+				"type": "string"
+			},
+			{
+				"name": "_physicalAddress",
+				"type": "string"
+			},
+			{
+				"name": "_category",
+				"type": "uint256"
+			},
 			{
 				"name": "_restIndex",
 				"type": "uint256"
 			}
 		],
-		"name": "getRestInfo",
-		"outputs": [
-			{
-				"name": "",
-				"type": "string"
-			},
-			{
-				"name": "",
-				"type": "string"
-			},
-			{
-				"name": "",
-				"type": "string"
-			},
-			{
-				"name": "",
-				"type": "string"
-			},
-			{
-				"name": "",
-				"type": "string"
-			},
-			{
-				"name": "",
-				"type": "uint256"
-			},
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
+		"name": "manageRestInfo",
+		"outputs": [],
 		"payable": false,
-		"stateMutability": "view",
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
 		"constant": false,
 		"inputs": [
 			{
-				"name": "_reviewIndex",
+				"name": "_tokenPromise",
 				"type": "uint256"
 			},
 			{
-				"name": "_reply",
-				"type": "string"
+				"name": "_restIndex",
+				"type": "uint256"
 			}
 		],
-		"name": "writeReviewReply",
+		"name": "manageRestPromise",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
@@ -663,40 +240,104 @@ var contractABI = [
 		"type": "function"
 	},
 	{
-		"constant": true,
+		"constant": false,
+		"inputs": [],
+		"name": "requestEther",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_tokenAmount",
+				"type": "uint256"
+			},
+			{
+				"name": "_direction",
+				"type": "bool"
+			},
+			{
+				"name": "_restIndex",
+				"type": "uint256"
+			}
+		],
+		"name": "requestExchange",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
 		"inputs": [
 			{
 				"name": "_nickName",
 				"type": "string"
-			}
-		],
-		"name": "isSignedUpUser",
-		"outputs": [
-			{
-				"name": "",
-				"type": "bool"
 			},
 			{
-				"name": "",
+				"name": "_restName",
 				"type": "string"
+			},
+			{
+				"name": "_phoneNumber",
+				"type": "string"
+			},
+			{
+				"name": "_physicalAddress",
+				"type": "string"
+			},
+			{
+				"name": "_category",
+				"type": "uint256"
+			},
+			{
+				"name": "_tokenPromise",
+				"type": "uint256"
 			}
 		],
+		"name": "requestRestRegister",
+		"outputs": [],
 		"payable": false,
-		"stateMutability": "view",
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"constant": true,
-		"inputs": [],
-		"name": "owner",
-		"outputs": [
+		"constant": false,
+		"inputs": [
 			{
-				"name": "",
-				"type": "address"
+				"name": "_nickName",
+				"type": "string"
+			},
+			{
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"name": "_department",
+				"type": "uint8"
 			}
 		],
+		"name": "requestStuRegister",
+		"outputs": [],
 		"payable": false,
-		"stateMutability": "view",
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_restIndex",
+				"type": "uint256"
+			}
+		],
+		"name": "validateExchange",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -730,280 +371,73 @@ var contractABI = [
 		"type": "function"
 	},
 	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "Orders",
-		"outputs": [
-			{
-				"name": "restIndex",
-				"type": "uint256"
-			},
-			{
-				"name": "stuIndex",
-				"type": "uint256"
-			},
-			{
-				"name": "status",
-				"type": "string"
-			},
-			{
-				"name": "recievingAddress",
-				"type": "string"
-			},
-			{
-				"name": "menuNum",
-				"type": "uint256"
-			},
-			{
-				"name": "totalPrice",
-				"type": "uint256"
-			},
-			{
-				"name": "tokenUsed",
-				"type": "uint256"
-			},
-			{
-				"name": "actualPrice",
-				"type": "uint256"
-			},
-			{
-				"name": "orderTime",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "_stuIndex",
-				"type": "uint256"
-			}
-		],
-		"name": "getStuReviewList",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256[]"
-			},
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "_category",
-				"type": "uint256"
-			}
-		],
-		"name": "getRestList",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256[]"
-			},
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "Menus",
-		"outputs": [
-			{
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"name": "price",
-				"type": "uint256"
-			},
-			{
-				"name": "explanation",
-				"type": "string"
-			},
-			{
-				"name": "restIndex",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "restCandidates",
-		"outputs": [
-			{
-				"name": "nickName",
-				"type": "string"
-			},
-			{
-				"name": "restName",
-				"type": "string"
-			},
-			{
-				"name": "phoneNumber",
-				"type": "string"
-			},
-			{
-				"name": "physicalAddress",
-				"type": "string"
-			},
-			{
-				"name": "explanation",
-				"type": "string"
-			},
-			{
-				"name": "category",
-				"type": "uint256"
-			},
-			{
-				"name": "tokenPromise",
-				"type": "uint256"
-			},
-			{
-				"name": "Address",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "stuCandidates",
-		"outputs": [
-			{
-				"name": "nickName",
-				"type": "string"
-			},
-			{
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"name": "department",
-				"type": "uint256"
-			},
-			{
-				"name": "Address",
-				"type": "address"
-			},
-			{
-				"name": "hasPendingOrder",
-				"type": "bool"
-			},
-			{
-				"name": "checkedOrderAlarm",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "Token",
-		"outputs": [
-			{
-				"name": "totalTokenInNetwork",
-				"type": "uint256"
-			},
-			{
-				"name": "totalTokenPublished",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"constant": false,
 		"inputs": [
 			{
-				"name": "_restName",
-				"type": "string"
-			},
-			{
-				"name": "_phoneNumber",
-				"type": "string"
-			},
-			{
-				"name": "_physicalAddress",
-				"type": "string"
-			},
-			{
-				"name": "_category",
+				"name": "_reviewIndex",
 				"type": "uint256"
 			},
 			{
-				"name": "_restIndex",
-				"type": "uint256"
+				"name": "_reply",
+				"type": "string"
 			}
 		],
-		"name": "manageRestInfo",
+		"name": "writeReviewReply",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
+		"inputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
 		"constant": true,
 		"inputs": [
 			{
-				"name": "_address",
-				"type": "address"
+				"name": "_restIndex",
+				"type": "uint256"
 			}
 		],
-		"name": "isAddressValid",
+		"name": "getLastOrderTimePassed",
 		"outputs": [
 			{
 				"name": "",
 				"type": "bool"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_menuIndex",
+				"type": "uint256"
+			}
+		],
+		"name": "getMenuInfo",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "string"
 			}
 		],
 		"payable": false,
@@ -1070,21 +504,168 @@ var contractABI = [
 		"type": "function"
 	},
 	{
-		"constant": false,
+		"constant": true,
+		"inputs": [],
+		"name": "getRequestExchange",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address[]"
+			},
+			{
+				"name": "",
+				"type": "uint256[]"
+			},
+			{
+				"name": "",
+				"type": "uint256[]"
+			},
+			{
+				"name": "",
+				"type": "bool[]"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
 		"inputs": [
 			{
-				"name": "_orderIndex",
+				"name": "_restIndex",
+				"type": "uint256"
+			}
+		],
+		"name": "getRestInfo",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
 				"type": "uint256"
 			},
 			{
-				"name": "_isAccept",
-				"type": "bool"
+				"name": "",
+				"type": "uint256"
 			}
 		],
-		"name": "confirmOrder",
-		"outputs": [],
 		"payable": false,
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_category",
+				"type": "uint256"
+			}
+		],
+		"name": "getRestList",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256[]"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_restIndex",
+				"type": "uint256"
+			}
+		],
+		"name": "getRestMenuList",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256[]"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_restIndex",
+				"type": "uint256"
+			}
+		],
+		"name": "getRestOrderList",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256[]"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_restIndex",
+				"type": "uint256"
+			}
+		],
+		"name": "getRestReviewList",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256[]"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -1142,11 +723,11 @@ var contractABI = [
 		"constant": true,
 		"inputs": [
 			{
-				"name": "_restIndex",
+				"name": "_stuIndex",
 				"type": "uint256"
 			}
 		],
-		"name": "getRestOrderList",
+		"name": "getStuOrderList",
 		"outputs": [
 			{
 				"name": "",
@@ -1162,29 +743,106 @@ var contractABI = [
 		"type": "function"
 	},
 	{
-		"constant": false,
+		"constant": true,
 		"inputs": [
 			{
-				"name": "_name",
-				"type": "string"
-			},
-			{
-				"name": "_price",
-				"type": "uint256"
-			},
-			{
-				"name": "_explanation",
-				"type": "string"
-			},
-			{
-				"name": "_restIndex",
+				"name": "_stuIndex",
 				"type": "uint256"
 			}
 		],
-		"name": "addNewMenu",
-		"outputs": [],
+		"name": "getStuReviewList",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256[]"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
 		"payable": false,
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_address",
+				"type": "address"
+			}
+		],
+		"name": "getTokenInfo",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_address",
+				"type": "address"
+			}
+		],
+		"name": "isAddressSignedUp",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_address",
+				"type": "address"
+			}
+		],
+		"name": "isAddressValid",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_nickName",
+				"type": "string"
+			}
+		],
+		"name": "isSignedUpUser",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			},
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -1195,154 +853,19 @@ var contractABI = [
 				"type": "uint256"
 			}
 		],
-		"name": "getRestMenuList",
+		"name": "isUntreatedOrderExist",
 		"outputs": [
 			{
 				"name": "",
-				"type": "uint256[]"
-			},
-			{
-				"name": "",
-				"type": "uint256"
+				"type": "bool"
 			}
 		],
 		"payable": false,
 		"stateMutability": "view",
 		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_nickName",
-				"type": "string"
-			},
-			{
-				"name": "_restName",
-				"type": "string"
-			},
-			{
-				"name": "_phoneNumber",
-				"type": "string"
-			},
-			{
-				"name": "_physicalAddress",
-				"type": "string"
-			},
-			{
-				"name": "_category",
-				"type": "uint256"
-			},
-			{
-				"name": "_tokenPromise",
-				"type": "uint256"
-			}
-		],
-		"name": "requestRestRegister",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_nickName",
-				"type": "string"
-			},
-			{
-				"name": "_name",
-				"type": "string"
-			},
-			{
-				"name": "_department",
-				"type": "uint8"
-			}
-		],
-		"name": "requestStuRegister",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "_restIndex",
-				"type": "uint256"
-			}
-		],
-		"name": "getRestReviewList",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256[]"
-			},
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_tokenPromise",
-				"type": "uint256"
-			},
-			{
-				"name": "_restIndex",
-				"type": "uint256"
-			}
-		],
-		"name": "manageRestPromise",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_restIndex",
-				"type": "uint256"
-			}
-		],
-		"name": "validateExchange",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "S",
-				"type": "uint256"
-			}
-		],
-		"name": "distributeTokenStudent",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "constructor"
 	}
-];
-var contractAddress = "0x7f361d8788bd2394e55bf3951b054a65fe53d217";
+]; 
+var contractAddress = "0xc213649707e12fe154a956c39231124140631eb5";
 var web3;
 
 
