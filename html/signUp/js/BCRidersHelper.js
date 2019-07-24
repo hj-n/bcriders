@@ -1,6 +1,3 @@
-var nickname = document.getElementById("nickname").value;
-var name = document.getElementById("name").value;
-var department = document.getElementById("department").value;
 
 
 function startApp() {
@@ -10,6 +7,10 @@ function startApp() {
 
 function signUpAccount() {
     var a;
+    var nickname = document.getElementById("nickname").value;
+    var name = document.getElementById("name").value;
+    var department = document.getElementById("department").value;
+
     switch(department){
         case "Mathematics": a = 1;
         break;
