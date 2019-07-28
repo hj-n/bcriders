@@ -10,8 +10,8 @@
     <script type="text/javascript">
         function startApp() {
             contract = web3.eth.contract(contractABI);
-            BCRiders = contract.at(contractAddress);
-            BCriders.signIn("aaa", function(err, result) {
+            contractInstance = contract.at(contractAddress);
+            contractInstance.signIn("aaa", function(err, result) {
                 alert(result[1]);
             })
         }
