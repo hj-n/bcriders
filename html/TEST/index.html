@@ -11,7 +11,7 @@
         function startApp() {
             contract = web3.eth.contract(contractABI);
             contractInstance = contract.at(contractAddress);
-            contractInstance.signIn("aaa", function(err, result) {
+            contractInstance.signIn(111, function(err, result) {
                 alert(result[1]);
             })
         }
