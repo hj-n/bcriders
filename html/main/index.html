@@ -39,7 +39,6 @@ https://templatemo.com/tm-520-highway
                     var ind = result[0][i];
                     contractInstance.Users(ind, function (err, result) {
                         restArray.push({name: result[2], promise: result[5], index: ind});
-                        alert(restArray[i].name);
                     });
                 }
                 callback(restArray);
