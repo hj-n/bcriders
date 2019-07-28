@@ -32,11 +32,12 @@ https://templatemo.com/tm-520-highway
             contractInstance = contract.at(contractAddress);
             function makeArray(err, result) {
                 var restArray = new Array(result[1]);
+                var length = result[1];
                 for(var i=0; i <result[1]; i++) {
                     var ind = result[0][i];
                     contractInstance.Users(ind, function (err, result) {
                         restArray.push({name: result[2], promise: result[5], index: ind});
-                        if(i == result[1]-1) {
+                        if(i == (length-1)) {
                             for(var j=0; j < result[1]; j++) {
                                 alert(restArray[j].name);
                             }
