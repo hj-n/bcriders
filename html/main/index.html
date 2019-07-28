@@ -36,7 +36,7 @@ https://templatemo.com/tm-520-highway
                     var ind = result[0][i];
                     contractInstance.Users(ind, function (err, result) {
                         restArray.push({name: result[2], promise: result[5], index: ind});
-                        if(i == result[1]) {
+                        if(i == result[1]-1) {
                             for(var j=0; j < result[1]; j++) {
                                 alert(restArray[j].name);
                             }
