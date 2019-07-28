@@ -30,17 +30,15 @@ https://templatemo.com/tm-520-highway
         function startApp() {
             contract = web3.eth.contract(contractABI);
             contractInstance = contract.at(contractAddress);
+            var arrLength = result[1]-1;
             function makeArray(err, result) {
                 var restArray = new Array(result[1]);
-                var length = result[1];
                 for(var i=0; i <result[1]; i++) {
                     var ind = result[0][i];
                     contractInstance.Users(ind, function (err, result) {
                         restArray.push({name: result[2], promise: result[5], index: ind});
-                        if(i == (length)) {
-                            for(var j=0; j < result[1]; j++) {
-                                alert(restArray[j].name);
-                            }
+                        if(restArray.length == arrLength) {
+                            alert(restArray[0].name);
                         }
                     });
                 }
