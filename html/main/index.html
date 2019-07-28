@@ -25,13 +25,16 @@ https://templatemo.com/tm-520-highway
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
-<!-- put this code between "HEAD" tag and "BODY" tag.    -->
-<!-- ====================================================--
-<script type=”text/javascript” src=”../web3.min.js”></script>
-<script type="text/javascript" src="../BCRiders.js"></script>
-!-- ====================================================-->
-<!-- put this code between "HEAD" tag and "BODY" tag.    -->
-<body>
+    <script type="text/javascript" src="../BCRiders.js"></script>
+    <script type="text/javascript">
+        function startApp() {
+            contract = web3.eth.contract(contractABI);
+            contractInstance = contract.at(contractAddress);
+            contractInstance.getRestIndex(0, function (err, result) {
+                alert(result[0][0], result[0][1], result[0][2], result[1]);
+            });
+        }
+    </script>
 
     <nav>
         <div class="logo">
@@ -247,7 +250,6 @@ https://templatemo.com/tm-520-highway
         </div>
       </div>
     </section>
-    <script src="js/BCRiders.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
