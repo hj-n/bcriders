@@ -30,7 +30,10 @@ https://templatemo.com/tm-520-highway
         function startApp() {
             contract = web3.eth.contract(contractABI);
             contractInstance = contract.at(contractAddress);
-            contractInstance.getRestIndex(0, function (err, result) {
+            function printArray(restArray) {
+                alert(restArray[2].name);
+            }
+            function makeArray(err, result, callback) {
                 var restArray = new Array();
                 for(var i=0; i <result[1]; i++) {
                     var ind = result[0][i];
@@ -38,7 +41,10 @@ https://templatemo.com/tm-520-highway
                         restArray.push({name: result[2], promise: result[5], index: ind});
                     });
                 }
-                alert(restArray[2].name);
+                callback(restArray);
+            }
+            contractInstance.getRestIndex(0, function (err, result) {
+                makeArray(err, result, printArray);
             });
         }
     </script>
