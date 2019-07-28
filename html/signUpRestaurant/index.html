@@ -50,8 +50,10 @@
 		else if(categoryString == "Meat (gogi)") category = 8;
 		else if(categoryString == "Salad") category = 9;
 		contractInstance.signUp(false, nickname, name, category, tokenPromise, function (err, result){
-			alert('Send Register Fee to us and Wait for our approval\nWoori Bank 1002-000-000000');
-			location.href='../login';
+			if(!err) {
+				alert('Send Register Fee to us and Wait for our approval\nWoori Bank 1002-000-000000');
+				location.href='../login';
+			}
 		});
 	}
 </script>

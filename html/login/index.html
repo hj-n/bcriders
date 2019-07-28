@@ -27,12 +27,33 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 </head>
-<!-- put this code between "HEAD" tag and "BODY" tag.    -->
-<!-- ====================================================--
-<script type=”text/javascript” src=”../web3.min.js”></script>
 <script type="text/javascript" src="../BCRiders.js"></script>
-!-- ====================================================-->
-<!-- put this code between "HEAD" tag and "BODY" tag.    -->
+<script type="text/javascript">
+    function startApp() {
+        contract = web3.eth.contract(contractABI);
+        contractInstance = contract.at(contractAddress);
+	}
+	function signInUser() {
+		var nickname = Number(document.getElementById("nickname").value);
+		contractInstance.signIn(nickname, function(err, result) {
+			if(result[0]) {
+				if(result[1]) {    // if student
+					sessionStorage.isStudent = true;
+					location.href = '../main';
+				}
+				else {
+					sessionStorage.isStudent = false;
+					location.href = '../mypageRestaurant';
+					
+				}
+			}
+			else {
+				alert("Wrong nickname or didn't sign!!");
+				location.href = '../login';
+			}
+		})
+	}
+</script>
 <body>
 	
 	<div class="limiter">
@@ -50,7 +71,7 @@
 					
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" onclick="location.href='../main'">
+						<button class="login100-form-btn" onclick="return signInUser()">
 							Sign in
 						</button>
 					</div>

@@ -51,7 +51,7 @@
 		else if(departmentString == "Chemical Engineering") depart = 10;
 		else if(departmentString == "Creative IT Engineering") depart = 11;
 		contractInstance.signUp(true, nickname, name, department, 0, function (err, result){
-			location.href='../login';
+			if(!err) location.href='../login';
 		});
 	}
 
