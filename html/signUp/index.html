@@ -27,18 +27,40 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 </head>
-<!-- put this code between "HEAD" tag and "BODY" tag.    -->
-<!-- ====================================================--
-<script type=”text/javascript” src=”../web3.min.js”></script>
 <script type="text/javascript" src="../BCRiders.js"></script>
-!-- ====================================================-->
-<!-- put this code between "HEAD" tag and "BODY" tag.    -->
+<script type="text/javascript">
+    function startApp() {
+        contract = web3.eth.contract(contractABI);
+        contractInstance = contract.at(contractAddress);
+	}
+	
+	function signUpUser() {
+		var nickname = Number(document.getElementById("nickname").value);
+		var name = document.getElementById("name").value;
+		var departmentString = document.getElementById("department").value;
+		var depart;
+		if(departmentString == "Mathematics") depart = 1;
+		else if(departmentString == "Physics") depart = 2;
+		else if(departmentString == "Chemistry") depart = 3;
+		else if(departmentString == "Life Science") depart = 4;
+		else if(departmentString == "Matrials Science & Engineering") depart = 5;
+		else if(departmentString == "Mechanical Engineering") depart = 6;
+		else if(departmentString == "Industrial and Management Engineering") depart = 7;
+		else if(departmentString == "Electronic and Electric Engineering") depart = 8;
+		else if(departmentString == "Computer Science and Engineering") depart = 9;
+		else if(departmentString == "Chemical Engineering") depart = 10;
+		else if(departmentString == "Creative IT Engineering") depart = 11;
+		contractInstance.signUp(true, nickname, name, department, 0, function (err, result){});
+	}
+
+	// location.href='../login'
+</script>
 <body>
 	
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<div class="login100-form validate-form">
 					<span class="login100-form-title p-b-34">
 						Sign Up For User
 					</span>
@@ -71,7 +93,7 @@
 					
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" onclick="location.href='../login'">
+						<button class="login100-form-btn" onclick="signUpUser()">
 							Sign up
 						</button>
 					</div>
@@ -85,7 +107,7 @@
 					</div>
 
 					
-				</form>
+				</div>
 
 				<div class="login100-more" style="background-image: url('images/bg-01.jpg');"></div>
 			</div>
