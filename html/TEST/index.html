@@ -1,6 +1,4 @@
 
-    
-
 
 <!DOCTYPE html>
 <html>
@@ -10,10 +8,11 @@
 
     <script type="text/javascript" src="../BCRiders.js"></script>
     <script type="text/javascript">
+        var contractInstance;
         function startApp() {
             contract = web3.eth.contract(contractABI);
             contractInstance = contract.at(contractAddress);
-            contractInstance.signIn(111, function(err, result) {
+            contractInstance.signIn(, function(err, result) {
                 alert(result[1]);
             })
         }
