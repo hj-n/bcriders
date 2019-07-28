@@ -27,12 +27,34 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 </head>
-<!-- put this code between "HEAD" tag and "BODY" tag.    -->
-<!-- ====================================================--
-<script type=”text/javascript” src=”../web3.min.js”></script>
 <script type="text/javascript" src="../BCRiders.js"></script>
-!-- ====================================================-->
-<!-- put this code between "HEAD" tag and "BODY" tag.    -->
+<script type="text/javascript">
+    function startApp() {
+        contract = web3.eth.contract(contractABI);
+        contractInstance = contract.at(contractAddress);
+	}
+	
+	function signUpRestaurant() {
+		var nickname = Number(document.getElementById("nickname").value);
+		var name = document.getElementById("restaurnatName").value;
+		var categoryString = document.getElementById("category").value;
+		var category;
+		var tokenPromise = Number(document.getElementById("tokenAmount").value);
+		if(categoryString == "Korean") category = 1;
+		else if(categoryString == "Burger") category = 2;
+		else if(categoryString == "Chicken") category = 3;
+		else if(categoryString == "Pizza") category = 4;
+		else if(categoryString == "Chinese") category = 5;
+		else if(categoryString == "Snack (Tteokbokki)") category = 6;
+		else if(categoryString == "Japanese") category = 7;
+		else if(categoryString == "Meat (gogi)") category = 8;
+		else if(categoryString == "Salad") category = 9;
+		contractInstance.signUp(false, nickname, name, category, tokenPromise, function (err, result){
+			location.href='../login';
+		});
+	}
+</script>
+
 <body>
 	
 	<div class="limiter">
@@ -61,7 +83,6 @@
 					<div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type user name">
 						<select id="category" class="input100" type= "uint" name="" placeholder="Category">
 							<option value="">Category</option>
-							<option value="ALL">ALL</option>
 							<option value="Korean">Korean</option>
 							<option value="Burger">Burger</option>
 							<option value="Chicken">Chicken</option>
