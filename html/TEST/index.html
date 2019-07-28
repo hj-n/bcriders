@@ -8,11 +8,10 @@
 
     <script type="text/javascript" src="../BCRiders.js"></script>
     <script type="text/javascript">
-        var contractInstance;
         function startApp() {
             contract = web3.eth.contract(contractABI);
-            contractInstance = contract.at(contractAddress);
-            contractInstance.signIn(, function(err, result) {
+            BCRiders = contract.at(contractAddress);
+            BCriders.signIn("aaa", function(err, result) {
                 alert(result[1]);
             })
         }
