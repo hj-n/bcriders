@@ -30,23 +30,23 @@ https://templatemo.com/tm-520-highway
         function startApp() {
             contract = web3.eth.contract(contractABI);
             contractInstance = contract.at(contractAddress);
-            function printArray(restArray) {
-                alert(restArray[2].index);
-            }
-            function makeArray(err, result, callback) {
+            function makeArray(err, result) {
                 var restArray = new Array(result[1]);
                 for(var i=0; i <result[1]; i++) {
                     var ind = result[0][i];
-                    var istore = i;
                     contractInstance.Users(ind, function (err, result) {
                         restArray.push({name: result[2], promise: result[5], index: ind});
-                        alert(restArray[istore].index);
+                        if(i == result[1]) {
+                            for(var j=0; j < result[1]; j++) {
+                                alert(restArray[j].name);
+                            }
+                        }
                     });
                 }
                 callback(restArray);
             }
             contractInstance.getRestIndex(0, function (err, result) {
-                makeArray(err, result, printArray);
+                makeArray(err, result);
             });
         }
     </script>
