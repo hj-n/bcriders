@@ -31,7 +31,7 @@ https://templatemo.com/tm-520-highway
             contract = web3.eth.contract(contractABI);
             contractInstance = contract.at(contractAddress);
             contractInstance.getRestIndex(0, function (err, result) {
-                alert(result[0][0], result[0][1], result[0][2], result[1]);
+                alert(result[0][0]+result[0][1]+result[0][2]+result[1]);
             });
         }
     </script>
