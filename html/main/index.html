@@ -34,7 +34,7 @@ https://templatemo.com/tm-520-highway
                 alert(restArray[2].name);
             }
             function makeArray(err, result, callback) {
-                var restArray = new Array();
+                var restArray = new Array(result[1]);
                 for(var i=0; i <result[1]; i++) {
                     var ind = result[0][i];
                     contractInstance.Users(ind, function (err, result) {
