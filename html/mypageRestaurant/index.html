@@ -75,7 +75,11 @@
 	}
 
 	function addReply(index) {
-		alert(index);
+		var reply = prompt('Your reply?', '');
+		if(reply != null)
+			contractInstance.writeReply(index, reply, function(err, result) {
+				alert("Thank you for your reply!!");	
+			});
 	}
 	
 	
