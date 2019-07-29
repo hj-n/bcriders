@@ -105,6 +105,15 @@
 		});
 	}
 
+	function request() {
+		var amount = Number(document.getElementById("exchangeAmount").value);
+		var direction = document.getElementById("exchangeType").value;
+		var isSell;
+		if(direction == "SELL") isSell = true;
+		else isSell = false;
+		alert(amount + isSell);
+	}
+
 </script>
 <body>
 
@@ -211,7 +220,7 @@
 						<option value="Buy">BUY</option>
 					</select>
 				</div>
-				<p><input type="submit" value ="Require Exchange"></p>
+				<p><input type="submit" onclick="return request()" value ="Require Exchange"></p>
 				<div class="col-md-6 col-sm-6">
 					<input name="name" type="text" class="form-control" id="donationAmount" placeholder="Amount">
 				</div>
