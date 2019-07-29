@@ -39,16 +39,20 @@
 			if(result[0]) {
 				if(result[1]) {    // if student
 					sessionStorage.isStudent = true;
-					location.href = '../main';
+					contractInstance.userIndex(web3.eth.accounts[0], function(err, result) {
+						sessionStorage.myIndex = result;
+						location.href = '../main';
+					})
+					
 				}
 				else {
 					sessionStorage.isStudent = false;
-					location.href = '../mypageRestaurant';
-					
+					contractInstance.userIndex(web3.eth.accounts[0], function(err, result) {
+						sessionStorage.myIndex = result;
+						location.href = '../mypageRestaurant';
+					})
 				}
-				contractInstance.userIndex(web3.eth.accounts[0], function(err, result) {
-					sessionStorage.myIndex = result;
-				})
+				
 			}
 			else {
 				alert("Wrong nickname or didn't sign!!");
