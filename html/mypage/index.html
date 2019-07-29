@@ -22,12 +22,91 @@
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
 		
 </head>
-<!-- put this code between "HEAD" tag and "BODY" tag.    -->
-<!-- ====================================================--
-<script type=”text/javascript” src=”../web3.min.js”></script>
 <script type="text/javascript" src="../BCRiders.js"></script>
-!-- ====================================================-->
-<!-- put this code between "HEAD" tag and "BODY" tag.    -->
+<script type="text/javascript">
+    function startApp() {
+        contract = web3.eth.contract(contractABI);
+		contractInstance = contract.at(contractAddress);
+		showReview();
+		showToken();
+		showOrder();
+	}
+	
+	function showReview() {
+		contractInstance.getReviewIndex(sessionStorage.myIndex, function(err, result) {
+			for(var i = 0; i < result[1]; i++) {
+				contractInstance.Reviews(result[0][i], function(err, result2) {
+					if(result2[5] == false) {
+						var elem = document.createElement('div');
+						elem.innerHTML = "<div>"+
+										 	"<h2 class='heading'>"+result2[2]+"</h2>"+   
+											"<p>"+result2[3]+"</p>"+
+										 "</div>";
+						elem.setAttribute('class', "col-md-4 col-sm-4 wow fadeInUp");
+						elem.setAttribute('data-wow-delay', "0.3s");
+						document.getElementById("reviewList").append(elem);
+					}
+					else {
+						var elem = document.createElement('div');
+						elem.innerHTML = "<div>"+
+										 	"<h2 class='heading'>"+result2[2]+"</h2>"+   
+											"<p>"+result2[3]+"</p>"+
+											"<p>ㄴ"+result2[4]+"</p>"+
+										 "</div>";
+						elem.setAttribute('class', "col-md-4 col-sm-4 wow fadeInUp");
+						elem.setAttribute('data-wow-delay', "0.3s");
+						document.getElementById("reviewList").append(elem);
+
+					}
+				});
+			}
+		});
+	}
+
+	function showToken() {
+		contractInstance.Users(sessionStorage.myIndex, function(err, result) {
+			var token = Number(result[5]);
+			var money = 10 * token;
+			var elem = document.createElement('h1');
+			elem.innerHTML = "<h1>KRW"+money+"</h1>";
+			document.getElementById("KRW").append(elem);
+
+			var elem2 = document.createElement('h1');
+			elem2.innerHTML = "<h1>"+token+"</h1>";
+			document.getElementById("HA").append(elem2);
+			
+		});
+	}
+
+	function showOrder() {
+		contractInstance.getOrderIndex(sessionStorage.myIndex, function(err, result) {
+			for(var i = 0; i < result[1]; i++) {
+				contractInstance.Orders(result[0][i], function(err, result2) {
+					if(true) {
+						var elem = document.createElement('div');
+						elem.innerHTML = "<div>"+
+											 "<a href='#' data-lightbox-gallery='zenda-gallery'>  </a>"+
+											 "<div>"+
+												"<h3>Order</h3>"+
+												"<span>"+
+													"Actual Price: "+result2[4]+"<br>"+
+													"Token Used: "+result2[3]+"<br>"+
+													"Address: "+ result2[2] +
+ 												"</span>"+
+											"</div>"+
+											"<a href='img/mac.jpg' data-lightbox-gallery='zenda-gallery'>  </a>	"+
+										 "</div>";
+					
+					elem.setAttribute('class', "col-md-4 col-sm-4 wow fadeInUp");
+					elem.setAttribute('data-wow-delay', "0.3s");
+					document.getElementById("orderorder").append(elem);
+					}
+				});
+			}
+		});
+	}
+
+</script>
 <body>
 
 <!-- preloader section -->
@@ -67,10 +146,10 @@
 				<li>
 					<a href="../main">Home</a>
 				</li>
-				<li>
-					<a href="../mypage">MyPage</a>
+				<li onclick="return myPageSelector()">
+					<a>MyPage</a>
 				</li>
-				<li>
+				<li onclick="sessionStorage.clear()">
 					<a href="../login">Log Out</a>
 				</li>
 			</ul>
@@ -144,15 +223,11 @@
 				<h1 class="heading">Reviews</h1>
 				<hr>
 			</div>
-			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.3s">
-				<h2 class="heading">Fresh & Fast</h2>   
-					<p>Love Firebell as an alternative to shake shack in that there is more seating and the food is just as good.</p>
+			<div id="reviewList">
+				
 			</div>
 
-			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.6s">
-				<h2 class="heading">Good 🍔!</h2>
-					<p>Dense, aged beef with a nice "animal-style" mustardy crust. Highly-seasoned, with real beefy bite, but could be pinker and juicier.</p>
-				</div>
+			
 			
 		</div>
 	</div>
@@ -173,7 +248,6 @@
 	<a href="mypage.html"><img src="img/service_2.png" alt=""></a></button>
 </div>  
 <!-- JAVASCRIPT JS FILES -->	
-<script src="js/BCRiders.js"></script>
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.parallax.js"></script>
