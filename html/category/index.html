@@ -25,12 +25,31 @@ https://templatemo.com/tm-520-highway
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
-<!-- put this code between "HEAD" tag and "BODY" tag.    -->
-<!-- ====================================================--
-<script type=”text/javascript” src=”../web3.min.js”></script>
-<script type="text/javascript" src="../BCRiders.js"></script>
-!-- ====================================================-->
-<!-- put this code between "HEAD" tag and "BODY" tag.    -->
+    <script type="text/javascript" src="../BCRiders.js"></script>
+    <script type="text/javascript">
+        function startApp() {
+            contract = web3.eth.contract(contractABI);
+            contractInstance = contract.at(contractAddress);
+            contractInstance.getRestIndex(sessionStorage.categoryIndex, function (err, result) {
+                var restArray = new Array(result[2]);
+                for(var i=0; i < result[2]; i++) {
+                    restArray[i] = {index: result[0][i], promise: result[1][i]};
+                }
+                restArray.sort(function(a,b) {
+                    if((b.promise - a.promise)>0) return 1;
+                    else return -1;
+                })
+                for(i=0; i < result[2]; i++) {
+                    contractInstance.Users(restArray[i].index, function(err, result) {
+                        var elem = document.createElement('li');
+                        elem.innerHTML = "<li><a href='../burger'>"+result[2]+"</a>,</li>";
+                        elem.setAttribute('onclick', "sessionStorage.restIndex="+result[6]+"")
+                        document.getElementById("listOfRest").append(elem);
+                    });
+                }
+            });
+        }
+    </script>
 <body>
 
     <nav>
@@ -51,7 +70,7 @@ https://templatemo.com/tm-520-highway
                     <div class="load-more-button">
                         <a href="#">Burger Restaurant List</a>
                     </div>
-                    <ul class="load-more-button">
+                    <ul id="listOfRest" class="load-more-button">
                         <li><a href="../restaurant">FireBell</a>,</li>
                         <li><a href="#">Mom's Touch</a>,</li>
                         <li><a href="#">BurgerKing</a>,</li>
@@ -240,10 +259,10 @@ https://templatemo.com/tm-520-highway
                 <li>
 					<a href="../main">Home</a>
 				</li>
-				<li>
-					<a href="../mypage">MyPage</a>
+				<li onclick="return myPageSelector()">
+					<a>MyPage</a>
 				</li>
-				<li>
+				<li onclick="sessionStorage.clear()">
 					<a href="../login">Log Out</a>
 				</li>
               </ul>
