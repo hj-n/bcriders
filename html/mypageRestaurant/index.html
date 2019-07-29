@@ -98,6 +98,13 @@
 		});
 	}
 
+	function changePromise() {
+		var promise = Number(document.getElementById("donationAmount").value);
+		contractInstance.changeTokenPromise(promise, function(err, result) {
+			alert("Token Promise changed to "+promise+"!!");
+		});
+	}
+
 </script>
 <body>
 
@@ -192,7 +199,6 @@
 			</div>
 			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.3s" id="HA">
 				<h5>Holding Amount</h5>
-				<h1>1111</h1>
 			</div>
 			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.6s">
 				<div class="col-md-6 col-sm-6">
@@ -210,11 +216,12 @@
 					<input name="name" type="text" class="form-control" id="donationAmount" placeholder="Amount">
 				</div>
 				
-				<p><input type="submit" value ="Donation"></input>
+				<p><input type="submit" value ="Promise" onclick="return changePromise()" style="
+					margin-top: 0px;
+				"></input>
 			</div>
 			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.9s" id="KRW">
 				<h5>Exchange to KRW</h5>
-				<h1>KRW11,110</h1>
 			</div>
 		</div>
 	</div>
