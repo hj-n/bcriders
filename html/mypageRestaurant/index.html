@@ -55,7 +55,8 @@
 		});
 	}
 	function showReview() {
-		contractInstance.getReviewIndex(sessionStorage.myIndex, function(err, result) {
+		
+		contractInstance.getReveiwIndex(sessionStorage.myIndex, function(err, result) {
 			for(var i = 0; i < result[1]; i++) {
 				contractInstance.Reviews(result[0][i], function(err, result2) {
 					if(result2[6] == false) {
