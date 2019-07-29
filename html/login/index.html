@@ -46,6 +46,9 @@
 					location.href = '../mypageRestaurant';
 					
 				}
+				contractInstance.userIndex(web3.eth.accounts[0], function(err, result) {
+					sessionStorage.myIndex = result;
+				})
 			}
 			else {
 				alert("Wrong nickname or didn't sign!!");
