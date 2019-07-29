@@ -17,9 +17,7 @@ jQuery(document).ready(function($) {
           });
           
 
-          $('#submit44').on('click',function(){
-            window.location.href='../restaurant2/index.html'
-          });
+          
 
           // close modal when click on close button or somewhere out the modal content 
           $(document).on('click', function(e) {
