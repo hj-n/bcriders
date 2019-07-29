@@ -41,7 +41,7 @@ https://templatemo.com/tm-520-highway
                 for(i=0; i < result[2]; i++) {
                     contractInstance.Users(restArray[i].index, function(err, result) {
                         var elem = document.createElement('li');
-                        elem.innerHTML = "<li onclick='sessionStorage.restIndex="+result[6]+"; location.href=\'../burger\''>"+result[2]+"</li>";
+                        elem.innerHTML = "<li onclick='sessionStorage.restIndex="+result[6]+"; location.href=\'..\/burger\''>"+result[2]+"</li>";
                         document.getElementById("listOfRest").append(elem);
                     });
                 }
