@@ -30,6 +30,7 @@ https://templatemo.com/tm-520-highway
         function startApp() {
             contract = web3.eth.contract(contractABI);
             contractInstance = contract.at(contractAddress);
+
             contractInstance.getRestIndex(0, function (err, result) {
                 var restArray = new Array(result[2]);
                 for(var i=0; i < result[2]; i++) {
@@ -70,7 +71,7 @@ https://templatemo.com/tm-520-highway
                         <div class="thumb">
                             <a href="../category" ><div class="hover-effect">
                                 <div class="hover-content">
-                                    <h1 onclick='sessionStorage.category = "Korean"'>Korean <em>한식</em></h1>
+                                    <h1 onclick='sessionStorage.category = "Korean", sessionStorage.categoryIndex = 1'>Korean <em>한식</em></h1>
                                     <p>Korean food</p>
                                 </div>
                             </div></a>
