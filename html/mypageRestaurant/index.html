@@ -58,12 +58,12 @@
 		contractInstance.getReviewIndex(sessionStorage.myIndex, function(err, result) {
 			for(var i = 0; i < result[1]; i++) {
 				contractInstance.Reviews(result[0][i], function(err, result2) {
-					if(result2[6] == false) {
+					if(result2[5] == false) {
 						var elem = document.createElement('div');
 						elem.innerHTML = "<div>"+
 										 	"<h2 class='heading'>"+result2[2]+"</h2>"+   
 											"<p>"+result2[3]+"</p>"+
-											"<p><input data-index ="+result2[6]+"class ='comments' type='submit' value ='Any comment?'></p>"+
+											"<p><input data-index ="+result2[6]+" class ='comments' type='submit' value ='Any comment?'></p>"+
 										 "</div>";
 						elem.setAttribute('class', "col-md-4 col-sm-4 wow fadeInUp");
 						elem.setAttribute('data-wow-delay', "0.3s");
