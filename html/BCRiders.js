@@ -42,6 +42,8 @@ window.addEventListener('load', async () => {
 });
 
 function myPageSelector() {
-    if(sessionStorage.isStudent) location.href="../mypage";
-    else location.href="../mypageRestaurant";
+    if(sessionStorage.isStudent == true) location.href="../mypage";
+    else{
+        location.href="../mypageRestaurant";
+    } 
 }
