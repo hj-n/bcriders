@@ -53,6 +53,13 @@
 		});
 	}
 
+	function orderF() {
+		var address = document.getElementById("address").value;
+		var token = Number(document.getElementById("useToken").value);
+		var price = Number(document.getElementById("cart_total_value ml-auto22").innerHTML);
+		alert(address+token+price);
+	}
+
 	
 
 </script>
@@ -217,7 +224,7 @@
 								</li>
 							</ul>
 						</div>
-						<div class="button checkout_button"><a id="confirm_next">Proceed to order</a></div>
+						<div onclick="return orderF()" class="button checkout_button"><a id="confirm_next">Proceed to order</a></div>
 					</div>
 				</div>
 			</div>
