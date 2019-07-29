@@ -26,7 +26,8 @@
 <script type="text/javascript">
     function startApp() {
         contract = web3.eth.contract(contractABI);
-        contractInstance = contract.at(contractAddress);
+		contractInstance = contract.at(contractAddress);
+		showMenu();
 	}
 
 	function addingMenu() {
