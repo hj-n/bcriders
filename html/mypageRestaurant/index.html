@@ -33,7 +33,9 @@
 		var menuName = document.getElementById("menuName").value;
 		var menuPrice = Number(document.getElementById("menuPrice").value);
 		var explanation = document.getElementById("menuExplanation").value;
-		contractInstance.addMenu(menuName, menuPrice, explanation, function(err, result) {});
+		contractInstance.addMenu(menuName, menuPrice, explanation, function(err, result) {
+			location.href = "../mypageRestaurant";
+		});
 	}
 	
 	
