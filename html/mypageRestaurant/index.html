@@ -29,6 +29,7 @@
 		contractInstance = contract.at(contractAddress);
 		showMenu();
 		showReview();
+		showToken();
 	}
 
 	function addingMenu() {
@@ -82,7 +83,21 @@
 			});
 	}
 	
-	
+	function showToken() {
+		contractInstance.Users(sessionStorage.myIndex, function(err, result) {
+			var token = Number(result[5]);
+			var money = 10 * token;
+			var elem = document.createElement('h1');
+			elem.innerHTML = "<h1>KRW"+money+"</h1>";
+			document.getElementById("KRW").append(elem);
+
+			var elem2 = document.createElement('h1');
+			elem2.innerHTML = "<h1>"+token+"</h1>";
+			document.getElementById("HA").append(elem2);
+			
+		});
+	}
+
 </script>
 <body>
 
@@ -175,7 +190,7 @@
 				<h1 class="heading">Token</h1>
 				<hr>
 			</div>
-			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.3s">
+			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.3s" id="HA">
 				<h5>Holding Amount</h5>
 				<h1>1111</h1>
 			</div>
@@ -197,7 +212,7 @@
 				
 				<p><input type="submit" value ="Donation"></input>
 			</div>
-			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.9s">
+			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.9s" id="KRW">
 				<h5>Exchange to KRW</h5>
 				<h1>KRW11,110</h1>
 			</div>
