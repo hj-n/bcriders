@@ -27,7 +27,14 @@ jQuery(document).ready(function($) {
               timebefore = timenow;
               timenow = Date.now();
             }
-            alert(timenow-timebefore);
+            var flow = timenow - timebefore;
+            var day = parseInt(flow / 86400);
+            var remainderDay = flow % 86400;
+            var hour = parseInt(remainderDay / 3600);
+            var remainderHour = remainderDay % 3600;
+            var minute = parseInt(remainderHour /60);
+            var second = remainderHour & 60;
+            alert(day+"day "+hour+"hour "+minute+"min "+second+"sec has passed from last distribution");
           });
 
           // close modal when click on close button or somewhere out the modal content 

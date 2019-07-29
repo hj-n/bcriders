@@ -70,7 +70,7 @@
 
 	function distribution() {
 		contractInstance.distributeToken(function(err, result) {
-			alert("Distribute!!!");
+			if(!err) alert("Distribute!!!");
 		})
 	}
 
