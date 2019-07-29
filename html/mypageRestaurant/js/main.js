@@ -19,10 +19,7 @@ jQuery(document).ready(function($) {
             prompt('leave a comment');
           });
 
-          $('#submit22').on('click',function(){
-              window.location.href='../mypageRestaurant2/index.html';
-          });
-          
+         
           // close modal when click on close button or somewhere out the modal content 
           $(document).on('click', function(e) {
             var target = $(e.target);
