@@ -111,7 +111,14 @@
 		var isSell;
 		if(direction == "Sell") isSell = true;
 		else isSell = false;
-		alert(isSell);
+		contractInstance.reqExchange(amount, isSell, function(err, result) {
+			if(isSell == false) {
+				alert("We will soon send your money");
+			}
+			else {
+				alert("Please send us money");
+			}
+		});
 	}
 
 </script>
