@@ -36,7 +36,8 @@ https://templatemo.com/tm-520-highway
                     restArray[i] = {index: result[0][i], promise: result[1][i]};
                 }
                 restArray.sort(function(a,b) {
-                    return b.promise - a.promise;
+                    if((b.promise - a.promise)>0) return 1;
+                    else return -1;
                 })
                 for(i=0; i < result[2]; i++) {
                     contractInstance.Users(restArray[i].index, function(err, result) {
