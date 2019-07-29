@@ -40,7 +40,7 @@ https://templatemo.com/tm-520-highway
                 })
                 for(i=0; i < result[2]; i++) {
                     contractInstance.Users(restArray[i].index, function(err, result) {
-                        var elem = document.crateElement('li');
+                        var elem = document.createElement('li');
                         elem.innerHTML = "<li><a href='../burger'>"+result[2]+"</a>,</li>";
                         document.getElementById("listOfRest").append(elem);
                     });
