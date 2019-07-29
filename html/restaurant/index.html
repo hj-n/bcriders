@@ -69,7 +69,7 @@
 
 	function showMenu() {
 		contractInstance.getMenuIndex(sessionStorage.restIndex, function(err, result) {
-			for(var i = 0; i < result[i]; i++) {
+			for(var i = 0; i < result[1]; i++) {
 				contractInstance.Menus(result[0][i], function(err, result2) {
 					var elem = document.createElement('div');
 					elem.innerHTML =  "<div class='col-md-6 col-sm-6'>"+
