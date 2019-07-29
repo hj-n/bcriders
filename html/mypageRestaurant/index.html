@@ -63,7 +63,7 @@
 						elem.innerHTML = "<div>"+
 										 	"<h2 class='heading'>"+result2[2]+"</h2>"+   
 											"<p>"+result2[3]+"</p>"+
-											"<p><input title="+result2[6]+" class ='comments' onclick='return addReply()' type='submit' value ='Any comment?'></p>"+
+											"<p><input title="+result2[6]+" class ='comments' onclick='return addReply(this.title)' type='submit' value ='Any comment?'></p>"+
 										 "</div>";
 						elem.setAttribute('class', "col-md-4 col-sm-4 wow fadeInUp");
 						elem.setAttribute('data-wow-delay', "0.3s");
@@ -74,8 +74,8 @@
 		});
 	}
 
-	function addReply() {
-		alert(this.title);
+	function addReply(index) {
+		alert(index);
 	}
 	
 	
