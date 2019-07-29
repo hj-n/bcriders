@@ -41,7 +41,7 @@ https://templatemo.com/tm-520-highway
                 for(i=0; i < result[2]; i++) {
                     contractInstance.Users(restArray[i].index, function(err, result) {
                         var elem = document.createElement('li');
-                        elem.innerHTML = "<li><a href='../burger'>"+result[2]+"</a></li>";
+                        elem.innerHTML = "<li>"+result[2]+"</li>";
                         document.getElementById("listOfRest").append(elem);
                     });
                 }
@@ -205,7 +205,12 @@ https://templatemo.com/tm-520-highway
                         <a href="#">Recommended Restaurant List</a>
                     </div>
                     <ul id="listOfRest" class="load-more-button">
-  
+                        <li><a href="../burger">FireBell</a>,</li>
+                        <li><a href="#">Mom's Touch</a>,</li>
+                        <li><a href="#">Hun's Babsang</a>,</li>
+                        <li><a href="#">Pure Chicken</a>,</li>
+                        <li><a href="#">Captain Kim's Sushi</a>,</li>
+                        <li><a href="#">Domino's Pizza</a>,</li>
                     </ul>
                 </div>
             </div>
