@@ -40,3 +40,8 @@ window.addEventListener('load', async () => {
         console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
     }
 });
+
+function myPageSelector() {
+    if(sessionStorage.isStudent) location.href="../mypage";
+    else location.href="../mypageRestaurant";
+}
