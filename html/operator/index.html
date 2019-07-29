@@ -38,23 +38,23 @@
 			for(var i = 0; i < result[1]; i++) {
 				contractInstance.Exchanges(result[0][i], function(err, result2) {
 					if(true) {
+						var direction;
+						if(result[2] == true) {
+							direction == "SELL";
+						}
+						else {
+							direction == "BUY";
+						}
 						var elem = document.createElement('div');
 						elem.innerHTML = "<div>"+
-											 "<a href='#' data-lightbox-gallery='zenda-gallery'>  </a>"+
-											 "<div>"+
-												"<h3>Order</h3>"+
-												"<span>"+
-													"Actual Price: "+result2[4]+"<br>"+
-													"Token Used: "+result2[3]+"<br>"+
-													"Address: "+ result2[2] +
- 												"</span>"+
-											"</div>"+
-											"<a href='img/mac.jpg' data-lightbox-gallery='zenda-gallery'>  </a>	"+
-										 "</div>";
-					
-					elem.setAttribute('class', "col-md-4 col-sm-4 wow fadeInUp");
-					elem.setAttribute('data-wow-delay', "0.3s");
-					document.getElementById("orderorder").append(elem);
+											"<h2 class=heading'>"+result2[5]+"</h2>"+
+											"<h3>"+direction+"</h3>"+
+											"<p>"+result2[1]+" Token</p>"+
+											"<input name='submit' type='submit' title="+result2[4]+" value='Approve'>"+
+										"</div>";
+						elem.setAttribute('class', "col-md-4 col-sm-4 wow fadeInUp");
+						elem.setAttribute('data-wow-delay', "0.3s");
+						document.getElementById("exchangeList").append(elem);
 					}
 				});
 			}
@@ -135,7 +135,7 @@
 
 <!-- exchange section -->
 <section id="team" class="parallax-section">
-	<div class="container">
+	<div id="exchangeList" class="container">
 		<div class="row">
 			<div class="col-md-offset-2 col-md-8 col-sm-12 text-center">
 				<h1 class="heading">Token Exchange</h1>
