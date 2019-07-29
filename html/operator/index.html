@@ -68,6 +68,12 @@
 		})
 	}
 
+	function distribution() {
+		contractInstance.distributeToken(function(err, result) {
+			alert("Distribute!!!");
+		})
+	}
+
 
 </script>
 
@@ -161,7 +167,7 @@
 				<hr>
 			</div>
 			<div class="col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6">
-				<input name="distribution" type="submit" class="form-control" id="distribution" value="Token Distribute!">
+				<input name="distribution" onclick="return distribution()" type="submit" class="form-control" id="distribution" value="Token Distribute!">
 			</div>
 		</div>
 	</div>
