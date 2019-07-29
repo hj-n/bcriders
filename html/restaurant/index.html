@@ -35,7 +35,7 @@
 	}
 	function showTitle() {
 		contractInstance.Users(sessionStorage.restIndex, function(err, result) {
-			var elem = documnet.createElement('h2');
+			var elem = document.createElement('h2');
 			elem.innerHTML = "<h2>"+result[2]+"</h2>";
 			document.getElementById("restName").append(elem);
 		});
