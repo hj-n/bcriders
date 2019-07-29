@@ -24,10 +24,51 @@
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
 		
 </head>
-<!-- put this code between "HEAD" tag and "BODY" tag.    -->
-<!-- ====================================================-->
-<!-- ====================================================-->
-<!-- put this code between "HEAD" tag and "BODY" tag.    -->
+<script type="text/javascript" src="../BCRiders.js"></script>
+<script type="text/javascript">
+    function startApp() {
+        contract = web3.eth.contract(contractABI);
+		contractInstance = contract.at(contractAddress);
+		showReview();
+	}
+
+	
+	
+	function showReview() {
+		contractInstance.getReviewIndex(sessionStorage.restIndex, function(err, result) {
+			for(var i = 0; i < result[1]; i++) {
+				contractInstance.Reviews(result[0][i], function(err, result2) {
+					if(result2[5] == false) {
+						var elem = document.createElement('div');
+						elem.innerHTML = "<div>"+
+											"<h2 class=heading'>"+result2[2]+"</h2>"+
+											'<span class="starR on">별1</span>'+
+											'<span class="starR on">별2</span>'+
+											'<span class="starR on">별3</span>'+
+											'<span class="starR on">별4</span>'+
+											'<span class="starR">별5</span>'+  
+											"<p>"+result2[3]+"</p>"+
+											'<input name="submit" type="submit" onclick="alert(\'Thank you for evaluation!!\')" id="submit" value="Helpful"><input name="submit" onclick="alert(\'Thank you for evaluation!!\')" type="submit"  id="submit" value="Not helpful">'+
+										"</div>";
+						elem.setAttribute('class', "col-md-4 col-sm-4 wow fadeInUp");
+						elem.setAttribute('data-wow-delay', "0.3s");
+						document.getElementById("reviewList").append(elem);
+					}
+				});
+			}
+		});
+	}
+
+	
+	
+	
+
+	
+
+
+	
+
+</script>
 <body>
 
 <!-- preloader section -->
@@ -66,10 +107,10 @@
 				<li>
 					<a href="../main">Home</a>
 				</li>
-				<li>
-					<a href="../mypage">MyPage</a>
+				<li onclick="return myPageSelector()">
+					<a>MyPage</a>
 				</li>
-				<li>
+				<li onclick="sessionStorage.clear()">
 					<a href="../login">Log Out</a>
 				</li>
 			</ul>
@@ -145,7 +186,7 @@
 <!-- review section -->
 <section id="team" class="parallax-section">
 	<div class="container">
-		<div class="row">
+		<div id="reviewList" class="row">
 			<div class="col-md-offset-1 col-md-10 col-sm-12 text-center">
 				<h1 class="heading">Reviews</h1>
 				<hr>
