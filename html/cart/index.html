@@ -57,7 +57,9 @@
 		var address = document.getElementById("address").value;
 		var token = Number(document.getElementById("useToken").value);
 		var price = Number(document.getElementById("cart_total_value ml-auto22").innerHTML);
-		alert(address+token+price);
+		contractInstance.orderFood(sessionStorage.restIndex, address, token, price,function(err, result) {
+		
+		});
 	}
 
 	
