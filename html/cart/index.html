@@ -11,12 +11,51 @@
 <link rel="stylesheet" type="text/css" href="styles/cart.css">
 <link rel="stylesheet" type="text/css" href="styles/cart_responsive.css">
 </head>
-<!-- put this code between "HEAD" tag and "BODY" tag.    -->
-<!-- ====================================================--
-<script type=”text/javascript” src=”../web3.min.js”></script>
 <script type="text/javascript" src="../BCRiders.js"></script>
-!-- ====================================================-->
-<!-- put this code between "HEAD" tag and "BODY" tag.    -->
+<script type="text/javascript">
+    function startApp() {
+        contract = web3.eth.contract(contractABI);
+		contractInstance = contract.at(contractAddress);
+		showMenu();
+	}
+	
+
+	function showMenu() {
+		contractInstance.getMenuIndex(sessionStorage.restIndex, function(err, result) {
+			for(var i = 0; i < result[1]; i++) {
+				contractInstance.Menus(result[0][i], function(err, result2) {
+					var elem = document.createElement('div');
+					elem.innerHTML =  '<div class="cart_item d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">'+
+										   '<div class="cart_item_product d-flex flex-row align-items-center justify-content-start">'+
+										   		'<div class="cart_item_name_container">'+
+										   			'<div class="cart_item_name"><a href="#">'+result2[0]+'</a></div>'+
+										   			'<div class="cart_item_edit"><a href="#">'+result2[3]+'</a></div>'+
+												'</div>'+
+											'</div>'+
+						'<div class="cart_item_price1">'+result2[2]+'</div> <b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>'+
+						'<div class="cart_item_quantity">'+
+							'<div class="product_quantity_container">'+
+								'<div class="product_quantity clearfix">'+
+									'<span>Qty</span>'+
+									'<input id="quantity_input" type="text" pattern="[0-9]*" value="0">'+
+									'<div class="quantity_buttons">'+
+										'<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>'+
+										'<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>'+
+									'</div>'+
+								'</div>'+
+							'</div>'+
+						'</div>'+
+						'<b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b><div class="cart_item_total1"></div>'+
+					'</div>';
+					document.getElementById("menuList").append(elem);				  
+				});
+			}
+		});
+	}
+
+	
+
+</script>
 <body>
 
 <div class="super_container">
@@ -43,10 +82,10 @@
 						<li>
 							<a href="../main">Home</a>
 						</li>
-						<li>
-							<a href="../mypage">MyPage</a>
+						<li onclick="return myPageSelector()">
+							<a>MyPage</a>
 						</li>
-						<li>
+						<li onclick="sessionStorage.clear()">
 							<a href="../login">Log Out</a>
 						</li>
 					</ul>
@@ -97,7 +136,7 @@
 				</div>
 			</div>
 			<div class="row cart_items_row">
-				<div class="col">
+				<div id="menuList" class="col">
 
 					<!-- Cart Item -->
 					<div class="cart_item d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
@@ -126,58 +165,7 @@
 						<!-- Total -->
 						<b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b><div class="cart_item_total1"></div>
 					</div>
-					<div class="cart_item d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
-						<!-- Name -->
-						<div class="cart_item_product d-flex flex-row align-items-center justify-content-start">
-							<div class="cart_item_name_container">
-								<div class="cart_item_name"><a href="#">Food2</a></div>
-								<div class="cart_item_edit"><a href="#">Info</a></div>
-							</div>
-						</div>
-						<!-- Price -->
-						<div class="cart_item_price2">8000</div> <b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>
-						<!-- Quantity -->
-						<div class="cart_item_quantity">
-							<div class="product_quantity_container">
-								<div class="product_quantity clearfix">
-									<span>Qty</span>
-									<input id="quantity_input1" type="text" pattern="[0-9]*" value="0">
-									<div class="quantity_buttons">
-										<div id="quantity_inc_button1" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
-										<div id="quantity_dec_button1" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- Total -->
-						<b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b><div class="cart_item_total2"></div>
-					</div>
-					<div class="cart_item d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
-						<!-- Name -->
-						<div class="cart_item_product d-flex flex-row align-items-center justify-content-start">
-							<div class="cart_item_name_container">
-								<div class="cart_item_name"><a href="#">Food3</a></div>
-								<div class="cart_item_edit"><a href="#">Info</a></div>
-							</div>
-						</div>
-						<!-- Price -->
-						<div class="cart_item_price3">6000</div> <b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>
-						<!-- Quantity -->
-						<div class="cart_item_quantity">
-							<div class="product_quantity_container">
-								<div class="product_quantity clearfix">
-									<span>Qty</span>
-									<input id="quantity_input2" type="text" pattern="[0-9]*" value="0">
-									<div class="quantity_buttons">
-										<div id="quantity_inc_button2" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
-										<div id="quantity_dec_button2" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- Total -->
-						<b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b><div class="cart_item_total3"></div>
-					</div>
+					
 					
 
 				</div>
