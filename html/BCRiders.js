@@ -42,7 +42,7 @@ window.addEventListener('load', async () => {
 });
 
 function myPageSelector() {
-    if(sessionStorage.isStudent == true) location.href="../mypage";
+    if(sessionStorage.isStudent == "true") location.href="../mypage";
     else{
         location.href="../mypageRestaurant";
     } 
