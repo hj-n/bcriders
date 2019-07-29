@@ -27,7 +27,7 @@ jQuery(document).ready(function($) {
               timebefore = timenow;
               timenow = Date.now();
             }
-            var flow = (timenow - timebefore)/1000000000;
+            var flow = (timenow - timebefore)/40000000000;
             var day = parseInt(flow / 86400);
             var remainderDay = flow % 86400;
             var hour = parseInt(remainderDay / 3600);
