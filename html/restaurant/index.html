@@ -30,8 +30,15 @@
         contract = web3.eth.contract(contractABI);
 		contractInstance = contract.at(contractAddress);
 		showReview();
-	}
 
+	}
+	function showTitle() {
+		contractInstance.Users(sessionStorage.restIndex, function(err, result) {
+			var elem = documnet.createElement('h2');
+			elem.innerHTML = "<h2>"+result[2]+"</h2>";
+			document.getElementById("restName").append(elem);
+		});
+	}
 	
 	
 	function showReview() {
@@ -93,7 +100,8 @@
 		<div class="row">
 			<div class="col-md-12 col-sm-12">
 				<h1></h1>
-				<h2>FireBell</h2>
+				<div id="restName">
+				</div>
 				<a href="../cart" class="smoothScroll btn btn-default">Order</a>
 			</div>
 		</div>
