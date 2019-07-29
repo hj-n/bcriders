@@ -37,6 +37,21 @@
 			location.href = "../mypageRestaurant";
 		});
 	}
+	function showMenu() {
+		contractInstance.getMenuIndex(sessionStorage.myIndex, function(err, result) {
+			for(var i = 0; i < result[1]; i++) {
+				contractInstance.Menus(result[0][i], function(err, result2) {
+					var elem = document.createElement('div');
+						elem.innerHTML = "<div>"+
+										 "<h4>"+result2[0]+" ..................... <span>"+result2[2]+"</span></h4>"+
+										 "<h5>"+result2[3]+"</h5>"+
+										 "</div>";
+                        elem.setAttribute('class',"col-md-6 col-sm-6");
+                        document.getElementById("menuList").append(elem);
+				});
+			}
+		});
+	}
 	
 	
 </script>
@@ -191,13 +206,15 @@
 				<h1 class="heading">Information</h1>
 				<hr>
 			</div>
-			<div class="col-md-6 col-sm-6">
-				<h4>Food1 ..................... <span>KRW9,000</span></h4>
-				<h5>Info</h5>
-			</div>
-			<div class="col-md-6 col-sm-6">
-				<h4>Food2 ..................... <span>KRW8,000</span></h4>
-				<h5>Info</h5>
+			<div id="menuList">
+				<div class="col-md-6 col-sm-6">
+					<h4>Food1 ..................... <span>KRW9,000</span></h4>
+					<h5>Info</h5>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<h4>Food2 ..................... <span>KRW8,000</span></h4>
+					<h5>Info</h5>
+				</div>
 			</div>
 			
 			<div class="col-md-offset-1 col-md-10 col-sm-12 wow fadeIn" data-wow-delay="0.9s">
