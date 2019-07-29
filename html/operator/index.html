@@ -34,7 +34,7 @@
 
 
 	function showExchange() {
-		contractInstance.getExchangeIndex(sessionStorage.myIndex, function(err, result) {
+		contractInstance.getExchangeIndex( function(err, result) {
 			for(var i = 0; i < result[1]; i++) {
 				contractInstance.Exchanges(result[0][i], function(err, result2) {
 					if(true) {
