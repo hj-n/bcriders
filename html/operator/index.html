@@ -63,7 +63,9 @@
 
 	function confirm(index) {
 		var ind = Number(index);
-		alert(ind);
+		contractInstance.confirmExchange(ind, function(err, result) {
+			alert("Request Confirmed!!");
+		})
 	}
 
 
