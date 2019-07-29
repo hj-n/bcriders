@@ -39,7 +39,9 @@ https://templatemo.com/tm-520-highway
                     return b.promise - a.promise;
                 })
                 for(i=0; i < result[2]; i++) {
-                    alert(restArray[i].promise);
+                    var elem = document.createElement('li');
+                    elem.innerHTML = "<li><a href='../burger'>"+restArray[i].promise+"</a>,</li>";
+                    document.getElementById("listOfRest").append(elem);
                 }
             });
         }
@@ -200,7 +202,7 @@ https://templatemo.com/tm-520-highway
                     <div class="load-more-button">
                         <a href="#">Recommended Restaurant List</a>
                     </div>
-                    <ul class="load-more-button">
+                    <ul id="listOfRest" class="load-more-button">
                         <li><a href="../burger">FireBell</a>,</li>
                         <li><a href="#">Mom's Touch</a>,</li>
                         <li><a href="#">Hun's Babsang</a>,</li>
